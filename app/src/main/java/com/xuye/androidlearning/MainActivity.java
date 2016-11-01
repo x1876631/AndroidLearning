@@ -15,15 +15,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
-//        setTestScroller();
-        setScrollAnimator();
+
     }
 
-    private void initView() {
-        mScrollTestView = (ScrollTestView) findViewById(R.id.ScrollTestView);
-        mTestView = findViewById(R.id.testView);
+    private void scrollTest() {
+//        initScrollTestView();
+//        setTestScroller();
+//        setScrollAnimator();
     }
+
+//    private void initScrollTestView() {
+//        mScrollTestView = (ScrollTestView) findViewById(R.id.ScrollTestView);
+//        mTestView = findViewById(R.id.testView);
+//    }
 
     private void setTestScroller() {
         if (mScrollTestView != null) {
