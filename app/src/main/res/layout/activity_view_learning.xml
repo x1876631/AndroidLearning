@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/main_activity_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xuye.androidlearning.ViewLearningActivity">
+
+    <!--随手滑动的view-->
+    <!--<viewLearning.FollowHandView-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="@android:color/holo_red_light"-->
+    <!--/>-->
+
+    <!--<viewLearning.ScrollTestView-->
+    <!--android:id="@+id/ScrollTestView"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="300dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="@android:color/holo_red_light"-->
+    <!--&gt;-->
+    <!--<TextView-->
+    <!--android:id="@+id/testView"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:background="@android:color/holo_green_light"-->
+    <!--android:text="测试view"-->
+    <!--/>-->
+    <!--</viewLearning.ScrollTestView>-->
+
+    <!--<viewLearning.DispatchTestViewGroup-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="300dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="@android:color/holo_red_light"-->
+    <!--&gt;-->
+
+    <!--<viewLearning.DispatchTestView2-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:background="@android:color/black"-->
+    <!--/>-->
+
+    <!--<viewLearning.DispatchTestView-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:background="@android:color/holo_green_light"-->
+    <!--/>-->
+    <!--</viewLearning.DispatchTestViewGroup>-->
+
+    <viewLearning.CircleView
+        android:id="@+id/circle_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@android:color/black"
+        />
+</RelativeLayout>

@@ -1,51 +1,29 @@
 package com.xuye.androidlearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import viewLearning.ScrollTestView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ScrollTestView mScrollTestView;
-    private View mTestView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initView();
     }
 
-    private void scrollTest() {
-//        initScrollTestView();
-//        setTestScroller();
-//        setScrollAnimator();
-    }
-
-//    private void initScrollTestView() {
-//        mScrollTestView = (ScrollTestView) findViewById(R.id.ScrollTestView);
-//        mTestView = findViewById(R.id.testView);
-//    }
-
-    private void setTestScroller() {
-        if (mScrollTestView != null) {
-            mScrollTestView.setOnClickListener(new View.OnClickListener() {
+    private void initView() {
+        TextView viewLearningButton = (TextView) findViewById(R.id.view_learning_button);
+        if (viewLearningButton != null) {
+            viewLearningButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mScrollTestView.smoothScrollWithScroller(MainActivity.this, ScrollTestView.SCROLL_LENGTH, 0);
+                    startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
                 }
             });
         }
-    }
-
-    private void setScrollAnimator() {
-        mScrollTestView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mScrollTestView.smoothScrollWithAnimator(mTestView, ScrollTestView.SCROLL_LENGTH);
-            }
-        });
     }
 }
