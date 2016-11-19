@@ -53,7 +53,8 @@
 
     <viewLearning.CircleView
         android:id="@+id/circle_view"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/size_20"
         android:layout_height="100dp"
         android:background="@android:color/black"
         />
