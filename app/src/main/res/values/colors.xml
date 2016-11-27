@@ -3,4 +3,21 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="A1">#39d167</color>
+    <color name="A2">#323232</color>
+    <color name="A3">#666666</color>
+    <color name="A4">#999999</color>
+    <color name="A5">#c2c2c2</color>
+    <color name="A6">#e7e7e7</color>
+    <color name="A7">#eeeeee</color>
+    <color name="A8">#f1f1f1</color>
+    <color name="A9">#ffffff</color>
+    <color name="A10">#ff0000</color>
+    <color name="A11">#ff6134</color>
+    <color name="A14">#ffa800</color>
+    <color name="A15">#00bf3a</color>
+    <color name="A16">#eeeeee</color>
+    <color name="A17">#7ac762</color>
+    <color name="A18">#ff6666</color>
 </resources>

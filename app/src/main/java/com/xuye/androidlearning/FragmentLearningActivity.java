@@ -1,7 +1,7 @@
 package com.xuye.androidlearning;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,7 +11,7 @@ import exceptionTest.TestDialogFragment;
  * Created by xuye on 16/11/25
  * 学习fragment用的activity
  */
-public class FragmentLearningActivity extends FragmentActivity {
+public class FragmentLearningActivity extends AppCompatActivity {
     private TestDialogFragment mDialogFragment;
 
     @Override
