@@ -8,11 +8,16 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initData();
         initView();
+    }
+
+    private void initData() {
     }
 
     private void initView() {
@@ -25,5 +30,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        TextView fragmentLearningButton = (TextView) findViewById(R.id.fragment_learning_button);
+        if (fragmentLearningButton != null) {
+            fragmentLearningButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
+                }
+            });
+        }
+
     }
 }

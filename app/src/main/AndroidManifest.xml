@@ -22,9 +22,13 @@
         <activity
             android:name=".ViewLearningActivity"
             android:screenOrientation="portrait"
-            >
+            />
 
-        </activity>
+        <activity
+            android:name=".FragmentLearningActivity"
+            android:screenOrientation="portrait"
+            />
+
     </application>
 
 </manifest>

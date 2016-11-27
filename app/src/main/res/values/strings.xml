@@ -2,4 +2,6 @@
     <string name="app_name">AndroidLearning</string>
 
     <string name="main_jump_view_learning">view知识学习页</string>
+    <string name="main_jump_fragment_learning">fragment学习页</string>
+    <string name="show_fragment">show_fragment</string>
 </resources>

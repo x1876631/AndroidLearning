@@ -12,4 +12,11 @@
         style="@style/MainJumpText"
         android:text="@string/main_jump_view_learning"
         />
+
+    <TextView
+        android:id="@+id/fragment_learning_button"
+        style="@style/MainJumpText"
+        android:layout_below="@id/view_learning_button"
+        android:text="@string/main_jump_fragment_learning"
+        />
 </RelativeLayout>
