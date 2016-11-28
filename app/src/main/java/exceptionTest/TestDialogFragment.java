@@ -44,7 +44,13 @@ public class TestDialogFragment extends DialogFragment {
          * 上面分析了异常原因，就是因为事务队列执行add时，发现已经add过了，不能再add。那我就在add前先remove一下，就好了。
          * 所以先添加个remove的事务，再去show(show的时候会add)，这样add之前就不会有add了(因为被remove掉了)
          */
-        manager.beginTransaction().remove(this).commit();
-        super.show(manager, tag);
+        try {
+            manager.beginTransaction().remove(this).commit();
+            super.show(manager, tag);
+        } catch (Exception e) {
+            //同一实例使用不同的tag会异常(通常不这么用，一般都是一个实例对应一个tag)，这里捕获一下
+            e.printStackTrace();
+        }
     }
+
 }

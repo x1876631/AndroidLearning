@@ -33,7 +33,7 @@ public class FragmentLearningActivity extends AppCompatActivity {
             showFragmentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
+                    showDialog(DIALOG_TAG);
                 }
             });
         }
@@ -43,7 +43,7 @@ public class FragmentLearningActivity extends AppCompatActivity {
             showFragmentButton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
+                    showDialog("2");
                 }
             });
         }
@@ -53,9 +53,13 @@ public class FragmentLearningActivity extends AppCompatActivity {
             showFragmentButton3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
+                    showDialog("3");
                 }
             });
         }
+    }
+
+    private void showDialog(String tag) {
+        mDialogFragment.show(getSupportFragmentManager(), tag);
     }
 }
