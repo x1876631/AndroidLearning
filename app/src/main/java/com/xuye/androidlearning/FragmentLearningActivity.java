@@ -13,6 +13,7 @@ import exceptionTest.TestDialogFragment;
  */
 public class FragmentLearningActivity extends AppCompatActivity {
     private TestDialogFragment mDialogFragment;
+    private static final String DIALOG_TAG = "common";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,12 +28,32 @@ public class FragmentLearningActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        TextView showFragmentButton = (TextView) findViewById(R.id.show_fragment);
+        TextView showFragmentButton = (TextView) findViewById(R.id.show_fragment1);
         if (showFragmentButton != null) {
             showFragmentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mDialogFragment.show(getSupportFragmentManager(), "common");
+                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
+                }
+            });
+        }
+
+        TextView showFragmentButton2 = (TextView) findViewById(R.id.show_fragment2);
+        if (showFragmentButton2 != null) {
+            showFragmentButton2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
+                }
+            });
+        }
+
+        TextView showFragmentButton3 = (TextView) findViewById(R.id.show_fragment3);
+        if (showFragmentButton3 != null) {
+            showFragmentButton3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDialogFragment.show(getSupportFragmentManager(), DIALOG_TAG);
                 }
             });
         }

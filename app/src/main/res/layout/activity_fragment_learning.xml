@@ -9,8 +9,22 @@
 
 
     <TextView
-        android:id="@+id/show_fragment"
+        android:id="@+id/show_fragment1"
         style="@style/MainJumpText"
+        android:text="@string/show_fragment"
+        />
+
+    <TextView
+        android:id="@+id/show_fragment2"
+        style="@style/MainJumpText"
+        android:layout_below="@id/show_fragment1"
+        android:text="@string/show_fragment"
+        />
+
+    <TextView
+        android:id="@+id/show_fragment3"
+        style="@style/MainJumpText"
+        android:layout_below="@id/show_fragment2"
         android:text="@string/show_fragment"
         />
 </RelativeLayout>

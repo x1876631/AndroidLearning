@@ -33,7 +33,7 @@ public class TestDialogFragment extends DialogFragment {
     @Override
     public void show(FragmentManager manager, String tag) {
         /**
-         * 【解决fragment is added的bug】
+         * 【解决展示相同tag的dialog时，fragment is added的bug】
          * 正常使用时，DialogFragment在show的时候会add一次，show以后点击屏幕，弹窗消失，fragment就被remove了，再show的时候也没有问题
          *
          * 【问题原因】
@@ -42,10 +42,9 @@ public class TestDialogFragment extends DialogFragment {
          *
          * 【解决办法】
          * 上面分析了异常原因，就是因为事务队列执行add时，发现已经add过了，不能再add。那我就在add前先remove一下，就好了。
-         * 所以先添加个remove的事务，再去show(show的时候会add)，然后立刻使用executePendingTransactions去执行一下事务队列
+         * 所以先添加个remove的事务，再去show(show的时候会add)，这样add之前就不会有add了(因为被remove掉了)
          */
         manager.beginTransaction().remove(this).commit();
         super.show(manager, tag);
-        manager.executePendingTransactions();
     }
 }
