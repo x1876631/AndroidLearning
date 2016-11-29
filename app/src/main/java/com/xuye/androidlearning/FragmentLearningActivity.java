@@ -43,6 +43,7 @@ public class FragmentLearningActivity extends AppCompatActivity {
             showFragmentButton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //测试同一DialogFragment实例使用不同tag的情况，确实会崩溃，需要加try catch
                     showDialog("2");
                 }
             });
