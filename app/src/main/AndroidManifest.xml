@@ -10,6 +10,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -21,11 +23,20 @@
 
         <activity
             android:name=".ViewLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
 
         <activity
             android:name=".FragmentLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".LaunchLearingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             />
 

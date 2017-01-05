@@ -7,16 +7,9 @@
     android:layout_height="match_parent"
     tools:context="com.xuye.androidlearning.MainActivity">
 
-    <TextView
-        android:id="@+id/view_learning_button"
-        style="@style/MainJumpText"
-        android:text="@string/main_jump_view_learning"
-        />
-
-    <TextView
-        android:id="@+id/fragment_learning_button"
-        style="@style/MainJumpText"
-        android:layout_below="@id/view_learning_button"
-        android:text="@string/main_jump_fragment_learning"
+    <ListView
+        android:id="@+id/main_activity_content_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         />
 </RelativeLayout>
