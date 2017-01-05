@@ -12,11 +12,9 @@ import java.util.ArrayList;
 /**
  * Created by xuye on 16/12/27
  * 首页listview的适配器
- * ps：其实如果只是个展示文字的列表的话，可以用封装好的arrayAdapter，这里为了学习baseApdater，重写了下
- * 【关于适配器】
- * 适配器是一个adapterView和该view所需的数据之间的桥梁。
- * 适配器提供对数据项的访问。
- * 适配器同样负责为数据项创建一个视图。
+ * <p>
+ * 查看arrayAdapter的源码和重写baseApater，明白了一些道理：
+ * adapterView只是负责展示，真正对数据操作、处理展示视图的是adapter，adapter需要维护一组要展示的元数据，并且负责创建要展示的视图项。
  */
 public class MainListAdapter extends BaseAdapter {
 

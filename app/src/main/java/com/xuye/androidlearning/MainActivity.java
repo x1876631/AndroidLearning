@@ -38,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void initView() {
         ListView listView = (ListView) findViewById(R.id.main_activity_content_list);
         if (listView != null) {
+
+//            ArrayAdapter<String> adapter =
+//                    new ArrayAdapter<String>(getApplicationContext(), R.layout.activity_common_click,
+//                            R.id.common_click_button, mData);
+//            listView.setAdapter(adapter);
+            //用上面的arrayAdapter也可以，就不用自己去实现adapter里的getView()了
             listView.setAdapter(new MainListAdapter(getApplicationContext(), mData));
             listView.setOnItemClickListener(this);
         }
