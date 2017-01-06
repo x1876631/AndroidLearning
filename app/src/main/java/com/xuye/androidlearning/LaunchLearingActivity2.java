@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * Created by xuye on 16/12/27
- * activity启动方式学习页
+ * Created by xuye on 17/01/06
+ * activity启动方式学习测试页2
  */
-public class LaunchLearingActivity extends AppCompatActivity {
+public class LaunchLearingActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,11 @@ public class LaunchLearingActivity extends AppCompatActivity {
     private void initView() {
         TextView textView = ((TextView) findViewById(R.id.common_test_activity_button));
         if (textView != null) {
-            textView.setText(R.string.lauch_activity_1);
+            textView.setText(R.string.lauch_activity_2);
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(LaunchLearingActivity.this, LaunchLearingActivity2.class));
+                    startActivity(new Intent(LaunchLearingActivity2.this, LaunchLearingActivity3.class));
                 }
             });
         }
