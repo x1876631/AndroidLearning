@@ -11,7 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -35,21 +35,21 @@
         <activity
             android:name=".LaunchLearingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             />
 
         <activity
             android:name=".LaunchLearingActivity2"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             />
 
         <activity
             android:name=".LaunchLearingActivity3"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             />
 
