@@ -10,25 +10,16 @@ import android.widget.TextView;
  * Created by xuye on 17/01/06
  * activity启动方式学习测试页3
  */
-public class LaunchLearingActivity3 extends AppCompatActivity {
+public class LaunchLearingActivity3 extends CommonTestActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_test);
-        initView();
+        showItemWithCount(new String[]{getString(R.string.lauch_activity_3)});
     }
 
-    private void initView() {
-        TextView textView = ((TextView) findViewById(R.id.common_test_activity_button));
-        if (textView != null) {
-            textView.setText(R.string.lauch_activity_3);
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(LaunchLearingActivity3.this, LaunchLearingActivity4.class));
-                }
-            });
-        }
+    @Override
+    protected void clickButton1() {
+        startActivity(new Intent(LaunchLearingActivity3.this, LaunchLearingActivity4.class));
     }
 }

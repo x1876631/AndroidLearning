@@ -2,14 +2,37 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_test_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     >
 
     <TextView
-        android:id="@+id/common_test_activity_button"
+        android:id="@+id/common_test_button1"
         style="@style/MainJumpText"
+        android:visibility="visible"
         tools:text="@string/lauch_activity_1"
+        />
+
+    <TextView
+        android:id="@+id/common_test_button2"
+        style="@style/MainJumpText"
+        android:visibility="gone"
+        tools:text="@string/lauch_activity_2"
+        />
+
+    <TextView
+        android:id="@+id/common_test_button3"
+        style="@style/MainJumpText"
+        android:visibility="gone"
+        tools:text="@string/lauch_activity_3"
+        />
+
+    <TextView
+        android:id="@+id/common_test_button4"
+        style="@style/MainJumpText"
+        android:visibility="gone"
+        tools:text="@string/lauch_activity_4"
         />
 </LinearLayout>
