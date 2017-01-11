@@ -61,7 +61,7 @@ public class TestService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Log.e(tag, "--------test service onBind--------");
-        return null;
+        return new TestServiceBinder();
     }
 
     @Override
