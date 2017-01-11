@@ -5,7 +5,13 @@
     <string name="main_jump_view_learning">view知识学习页</string>
     <string name="main_jump_fragment_learning">fragment学习页</string>
     <string name="main_jump_lauch_learning">activity启动学习页</string>
+    <string name="main_jump_service_learning">service学习</string>
 
+
+    <string name="start_service">start service</string>
+    <string name="bind_service">bind service</string>
+    <string name="unbind_service">unbind service</string>
+    <string name="stop_service">stop service</string>
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
     <string name="button_common_click_tip">点我，测试效果</string>

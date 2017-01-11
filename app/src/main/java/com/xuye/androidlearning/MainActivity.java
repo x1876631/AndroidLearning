@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //列表项内容文案资源id，如果想增加列表项，每次需要加文案和点击事件
     private int[] mDataResourceArray = {
             R.string.main_jump_view_learning, R.string.main_jump_fragment_learning,
-            R.string.main_jump_lauch_learning
+            R.string.main_jump_lauch_learning, R.string.main_jump_service_learning
     };
 
     @Override
@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
         } else if (getString(mDataResourceArray[2]).equals(content)) {
             startActivity(new Intent(MainActivity.this, LaunchLearingActivity.class));
+        } else if (getString(mDataResourceArray[3]).equals(content)) {
+            startActivity(new Intent(MainActivity.this, ServiceLearingActivity.class));
         }
     }
 }

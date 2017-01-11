@@ -60,6 +60,14 @@
             android:screenOrientation="portrait"
             />
 
+
+        <activity
+            android:name=".ServiceLearingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+        <service android:name=".TestService"/>
+
     </application>
 
 </manifest>
