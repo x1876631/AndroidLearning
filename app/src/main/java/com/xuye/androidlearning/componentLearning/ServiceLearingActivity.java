@@ -48,7 +48,7 @@ public class ServiceLearingActivity extends CommonTestActivity {
                 getString(R.string.start_service), getString(R.string.bind_service),
                 getString(R.string.unbind_service), getString(R.string.stop_service)
         });
-        LogUtil.logCurrentThreadInfo(tag, Thread.currentThread());
+//        LogUtil.logCurrentThreadInfo(tag, Thread.currentThread());
     }
 
     @Override

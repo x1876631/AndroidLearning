@@ -24,7 +24,7 @@ public class TestService extends Service {
         @Override
         public void run() {
             // TODO: 17/1/11  为什么onDestroy了以后Runnable还在工作？Runnable运行机制？回家看一下
-            LogUtil.logCurrentThreadInfo(tag, Thread.currentThread());
+//            LogUtil.logCurrentThreadInfo(tag, Thread.currentThread());
             if (isRun) {
                 mHandler.sendEmptyMessage(0);
             }

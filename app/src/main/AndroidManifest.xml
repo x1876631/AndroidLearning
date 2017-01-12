@@ -66,8 +66,23 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
+
         <service android:name=".componentLearning.TestService"/>
 
+
+        <activity
+            android:name=".componentLearning.BroadcastLearingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <receiver
+            android:name=".componentLearning.BroadcastLearingActivity$MyStaticReceiver"
+            >
+            <intent-filter>
+                <action android:name="com.xuye.androidlearning.ACTION_STATIC_BROADCAST_LEARNING"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
