@@ -35,7 +35,7 @@ public class BroadcastLearingActivity extends CommonTestActivity {
 
     @Override
     protected void clickButton1() {
-        //发广播
+        //发送动态注册的广播
         Intent intent = new Intent();
         intent.setAction(MyIntentAction.ACTION_DYNAMIC_BROADCAST_LEARNING);
         sendBroadcast(intent);
@@ -44,6 +44,7 @@ public class BroadcastLearingActivity extends CommonTestActivity {
     @Override
     protected void clickButton2() {
         super.clickButton2();
+        //发送在xml里静态注册的广播
         Intent intent = new Intent();
         intent.setAction(MyIntentAction.ACTION_STATIC_BROADCAST_LEARNING);
         sendBroadcast(intent);
@@ -51,16 +52,15 @@ public class BroadcastLearingActivity extends CommonTestActivity {
 
     @Override
     protected void onDestroy() {
-        //动态广播记得要解注册
+        //动态广播记得要解除注册
         unregisterReceiver(mReceiver);
         super.onDestroy();
     }
 
     /**
      * 动态注册的广播的接收者
-     * 内部类必须使用公开的静态内部类，否则会报异常Unable to instantiate receiver
      */
-    public static class MyDynamicReceiver extends BroadcastReceiver {
+    public class MyDynamicReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -72,9 +72,18 @@ public class BroadcastLearingActivity extends CommonTestActivity {
 
     /**
      * 静态注册的广播接收者
+     * 如果要用xml解析receiver，且用的是内部类实现的广播，则必须使用公开的静态内部类，否则会报异常"Unable to instantiate receiver"
+     * 原因：
+     * 系统从XML实例化时只会实例化指定的类，不会实例化其父类，而非静态内部类需要依赖父类的实例去实例化，所以必然是实例化不了的，
+     * 自然就会报"无法实例化接收者"的异常
      */
-    public static class MyStaticReceiver extends MyDynamicReceiver {
-
+    public static class MyStaticReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String text = getClass().getSimpleName();
+            Toast.makeText(context, text + context.getString(R.string.receive_broadcast),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
 
