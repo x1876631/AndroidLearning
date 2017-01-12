@@ -1,4 +1,4 @@
-package viewLearning;
+package com.xuye.androidlearning.viewLearning;
 
 import android.content.Context;
 import android.content.res.TypedArray;

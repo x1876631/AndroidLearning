@@ -1,7 +1,10 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.componentLearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.xuye.androidlearning.R;
+import com.xuye.androidlearning.base.CommonTestActivity;
 
 /**
  * Created by xuye on 17/01/06

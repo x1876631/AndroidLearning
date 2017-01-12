@@ -1,4 +1,4 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.componentLearning;
 
 import android.app.Service;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import util.LogUtil;
+import com.xuye.androidlearning.util.LogUtil;
 
 /**
  * Created by xuye on 17/1/11

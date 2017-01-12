@@ -1,10 +1,10 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.viewLearning;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import viewLearning.ScrollTestView;
+import com.xuye.androidlearning.R;
 
 /**
  * Created by xuye on 16/11/18

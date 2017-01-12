@@ -21,40 +21,40 @@
         </activity>
 
         <activity
-            android:name=".ViewLearningActivity"
+            android:name=".viewLearning.ViewLearningActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name=".FragmentLearningActivity"
+            android:name=".fragmentLearning.FragmentLearningActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name=".LaunchLearingActivity"
+            android:name=".componentLearning.LaunchLearingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name=".LaunchLearingActivity2"
+            android:name=".componentLearning.LaunchLearingActivity2"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name=".LaunchLearingActivity3"
+            android:name=".componentLearning.LaunchLearingActivity3"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name=".LaunchLearingActivity4"
+            android:name=".componentLearning.LaunchLearingActivity4"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="standard"
             android:screenOrientation="portrait"
@@ -62,11 +62,11 @@
 
 
         <activity
-            android:name=".ServiceLearingActivity"
+            android:name=".componentLearning.ServiceLearingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
-        <service android:name=".TestService"/>
+        <service android:name=".componentLearning.TestService"/>
 
     </application>
 

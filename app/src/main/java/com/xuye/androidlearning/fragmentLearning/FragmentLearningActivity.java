@@ -1,11 +1,12 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.fragmentLearning;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import exceptionTest.TestDialogFragment;
+import com.xuye.androidlearning.R;
+import com.xuye.androidlearning.fragmentLearning.TestDialogFragment;
 
 /**
  * Created by xuye on 16/11/25

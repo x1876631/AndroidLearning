@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.xuye.androidlearning.componentLearning.LaunchLearingActivity;
+import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
+import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
+import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {

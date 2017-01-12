@@ -1,4 +1,4 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.componentLearning;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
-import util.LogUtil;
+import com.xuye.androidlearning.R;
+import com.xuye.androidlearning.base.CommonTestActivity;
+import com.xuye.androidlearning.util.LogUtil;
 
 /**
  * Created by xuye on 17/01/11

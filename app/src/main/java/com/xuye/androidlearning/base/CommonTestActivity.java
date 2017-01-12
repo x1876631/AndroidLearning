@@ -1,10 +1,12 @@
-package com.xuye.androidlearning;
+package com.xuye.androidlearning.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.xuye.androidlearning.R;
 
 /**
  * Created by xuye on 17/01/11
