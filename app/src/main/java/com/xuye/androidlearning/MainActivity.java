@@ -11,6 +11,7 @@ import com.xuye.androidlearning.componentLearning.BroadcastLearingActivity;
 import com.xuye.androidlearning.componentLearning.LaunchLearingActivity;
 import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
 import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
+import com.xuye.androidlearning.handleLearning.HandlerLearingActivity;
 import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //列表项内容文案资源id，如果想增加列表项，每次需要加文案和点击事件
     private int[] mDataResourceArray = {
             R.string.main_jump_view_learning, R.string.main_jump_fragment_learning, R.string.main_jump_lauch_learning,
-            R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning
+            R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning,
+            R.string.main_jump_handler_learning
     };
 
     @Override
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, ServiceLearingActivity.class));
         } else if (getString(mDataResourceArray[4]).equals(content)) {
             startActivity(new Intent(MainActivity.this, BroadcastLearingActivity.class));
+        } else if (getString(mDataResourceArray[5]).equals(content)) {
+            startActivity(new Intent(MainActivity.this, HandlerLearingActivity.class));
         }
     }
 }

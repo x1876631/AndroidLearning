@@ -83,6 +83,12 @@
                 <action android:name="com.xuye.androidlearning.ACTION_STATIC_BROADCAST_LEARNING"/>
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".handleLearning.HandlerLearingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
