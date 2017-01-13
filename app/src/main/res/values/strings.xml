@@ -8,6 +8,7 @@
     <string name="main_jump_service_learning">service学习</string>
     <string name="main_jump_broadcast_learning">广播学习</string>
     <string name="main_jump_handler_learning">handler学习</string>
+    <string name="main_jump_thread_learning">线程学习</string>
 
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
@@ -29,4 +30,8 @@
 
     <string name="send_handler_message">发送handler消息</string>
 
+    <string name="AsyncTask_learning">执行文件下载AsyncTask</string>
+    <string name="file_load_loading">文件下载准备中</string>
+    <string name="current_load_progress">当前下载进度：%d%%</string>
+    <string name="file_load_succeded">文件下载成功</string>
 </resources>

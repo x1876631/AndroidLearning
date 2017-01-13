@@ -14,21 +14,50 @@ import com.xuye.androidlearning.R;
  */
 public abstract class CommonTestActivity extends AppCompatActivity implements View.OnClickListener {
 
-    protected LinearLayout mLayout;
+    //包含了按钮的linearLayout
+    protected LinearLayout mButtonLayout;
+
+
+    protected LinearLayout mOtherLayout;
+
+    //展示内容用的一个textview
+    protected TextView mOtherTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_common_test);
-        mLayout = (LinearLayout) findViewById(R.id.common_test_layout);
+        mButtonLayout = (LinearLayout) findViewById(R.id.common_test_button_layout);
+        mOtherLayout = (LinearLayout) findViewById(R.id.common_test_other_layout);
+        mOtherTextView = (TextView) findViewById(R.id.common_test_other_text_view);
     }
 
+    /**
+     * @return 获取内容展示view
+     */
+    public TextView getContentTextView() {
+        return mOtherTextView;
+    }
+
+    public LinearLayout getOtherLayout() {
+        return mOtherLayout;
+    }
+
+    public void showOtherLayout(boolean isShow) {
+        mOtherLayout.setVisibility(isShow ? View.VISIBLE : View.GONE);
+    }
+
+    /**
+     * 设置按钮的展示与点击事件
+     *
+     * @param nameArray 按钮内容列表，有内容的按钮才展示并能点击
+     */
     protected void showItemWithCount(String[] nameArray) {
-        if (nameArray.length <= 0 || nameArray.length > mLayout.getChildCount()) {
+        if (nameArray.length <= 0 || nameArray.length > mButtonLayout.getChildCount()) {
             return;
         }
         for (int i = 0; i < nameArray.length; i++) {
-            View child = mLayout.getChildAt(i);
+            View child = mButtonLayout.getChildAt(i);
             if (child != null) {
                 child.setVisibility(View.VISIBLE);
                 if (child instanceof TextView) {
@@ -61,6 +90,9 @@ public abstract class CommonTestActivity extends AppCompatActivity implements Vi
         }
     }
 
+    /**
+     * 使用此页面的子类，必定是用到一个按钮的，所以必须实现第一个按钮的点击事件
+     */
     protected abstract void clickButton1();
 
     protected void clickButton2() {}

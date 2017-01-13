@@ -10,7 +10,6 @@ import android.util.Log;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
-import com.xuye.androidlearning.util.LogUtil;
 
 /**
  * Created by xuye on 17/01/11
@@ -18,6 +17,7 @@ import com.xuye.androidlearning.util.LogUtil;
  * 不用thread的原因：
  * 1、thread和activity的声明周期无关联，activity销毁后，无法再拿到thread的引用
  * 2、多个activity不能共享一个thread，但同一service可以被多个activity控制
+ * 3、实现同样的功能时，service有更高的进程优先级，不会轻易被系统杀掉
  */
 public class ServiceLearingActivity extends CommonTestActivity {
 
