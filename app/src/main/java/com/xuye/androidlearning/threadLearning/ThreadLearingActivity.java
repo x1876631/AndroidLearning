@@ -1,17 +1,22 @@
 package com.xuye.androidlearning.threadLearning;
 
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
  * Created by xuye on 17/01/13
  * 线程学习页
+ * 1、AsyncTask：一个封装好的简单的异步任务类，内部由Handler和Thread实现，只能执行一次
+ * 2、注意各sdk版本AsyncTask实现的不同
+ * 3
  */
 public class ThreadLearingActivity extends CommonTestActivity {
 
@@ -33,6 +38,12 @@ public class ThreadLearingActivity extends CommonTestActivity {
      * 3、Result：后台任务执行结束后返回值 的类型
      */
     private class DownLoadFilesTask extends AsyncTask<URL, Integer, Long> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mOtherTextView.setText(R.string.file_load_begin);
+        }
 
         @Override
         protected Long doInBackground(URL... urls) {
@@ -76,7 +87,29 @@ public class ThreadLearingActivity extends CommonTestActivity {
 
     @Override
     protected void clickButton1() {
-        new DownLoadFilesTask().execute();
+        //启动任务时，可以传入复数的后台任务所需的参数
+        URL[] urlList = null;
+        try {
+            urlList = new URL[]{new URL("www.baidu.com"), new URL("www.sogou.com")};
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            /**
+             * 各版本的AsyncTask源码实现不同，
+             * 比如Api 22以前，必须在UI线程创建实例，否则无法操作UI修改，
+             * 而22以后，源码中直接获取主线程的Looper，所以可以在子线程里创建AsyncTask实例
+             */
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    new DownLoadFilesTask().execute();
+                }
+            }).start();
+        } else {
+            new DownLoadFilesTask().execute(urlList);
+        }
     }
 
     @Override

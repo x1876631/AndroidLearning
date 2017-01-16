@@ -32,6 +32,7 @@
 
     <string name="AsyncTask_learning">执行文件下载AsyncTask</string>
     <string name="file_load_loading">文件下载准备中</string>
+    <string name="file_load_begin">开始下载</string>
     <string name="current_load_progress">当前下载进度：%d%%</string>
     <string name="file_load_succeded">文件下载成功</string>
 </resources>
