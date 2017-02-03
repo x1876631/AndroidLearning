@@ -16,7 +16,6 @@ import java.net.URL;
  * 线程学习页
  * 1、AsyncTask：一个封装好的简单的异步任务类，内部由Handler和Thread实现，只能执行一次
  * 2、注意各sdk版本AsyncTask实现的不同
- * 3
  */
 public class ThreadLearingActivity extends CommonTestActivity {
 

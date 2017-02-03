@@ -17,7 +17,7 @@ public abstract class CommonTestActivity extends AppCompatActivity implements Vi
     //包含了按钮的linearLayout
     protected LinearLayout mButtonLayout;
 
-
+    //除了几个固定按钮外，展示其他view时用到的一个容器布局
     protected LinearLayout mOtherLayout;
 
     //展示内容用的一个textview

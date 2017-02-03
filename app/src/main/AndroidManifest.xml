@@ -95,6 +95,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
+
+        <activity
+            android:name=".windowLearning.WindowLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

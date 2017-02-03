@@ -14,6 +14,7 @@ import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
 import com.xuye.androidlearning.handleLearning.HandlerLearingActivity;
 import com.xuye.androidlearning.threadLearning.ThreadLearingActivity;
 import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
+import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int[] mDataResourceArray = {
             R.string.main_jump_view_learning, R.string.main_jump_fragment_learning, R.string.main_jump_lauch_learning,
             R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning,
-            R.string.main_jump_handler_learning, R.string.main_jump_thread_learning
+            R.string.main_jump_handler_learning, R.string.main_jump_thread_learning,
+            R.string.main_jump_window_learning,
     };
 
     @Override
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, HandlerLearingActivity.class));
         } else if (getString(mDataResourceArray[6]).equals(content)) {
             startActivity(new Intent(MainActivity.this, ThreadLearingActivity.class));
+        }else if (getString(mDataResourceArray[7]).equals(content)) {
+            startActivity(new Intent(MainActivity.this, WindowLearningActivity.class));
         }
     }
 }
