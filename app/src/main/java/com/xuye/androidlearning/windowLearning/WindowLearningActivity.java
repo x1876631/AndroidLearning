@@ -13,6 +13,7 @@ import com.xuye.androidlearning.base.CommonTestActivity;
 /**
  * Created by xuye on 17/02/03
  * window学习页
+ * 1、view必须依附于window，window的表现由view呈现
  */
 public class WindowLearningActivity extends CommonTestActivity {
 
@@ -30,7 +31,7 @@ public class WindowLearningActivity extends CommonTestActivity {
             mButton = new Button(this);
             mButton.setText(R.string.button_added);
             mButton.setBackgroundColor(getResources().getColor(R.color.A10));
-            //添加一个200*200的按钮，window type需要是2~xx才能显示
+            //添加一个200*200的按钮，window type需要是2~xx才能显示(为什么？)
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                     200, 200,
                     2, 0, PixelFormat.TRANSPARENT);
@@ -41,7 +42,7 @@ public class WindowLearningActivity extends CommonTestActivity {
             //按钮展示的位置在(100,300)
             layoutParams.x = 100;
             layoutParams.y = 300;
-            //把按钮添加到这个activity对应的window里
+            //把按钮添加到这个activity对应的window里？
             getWindowManager().addView(mButton, layoutParams);
         } else {
             Toast.makeText(this, R.string.button_is_added, Toast.LENGTH_SHORT).show();

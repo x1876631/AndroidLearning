@@ -10,6 +10,7 @@
     <string name="main_jump_handler_learning">handler学习</string>
     <string name="main_jump_thread_learning">线程学习</string>
     <string name="main_jump_window_learning">window学习</string>
+    <string name="main_jump_imageloader_learning">图片加载学习</string>
 
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
