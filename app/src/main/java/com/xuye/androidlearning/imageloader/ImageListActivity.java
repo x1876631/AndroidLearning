@@ -23,11 +23,9 @@ public class ImageListActivity extends AppCompatActivity {
             "http://h.hiphotos.baidu.com/image/pic/item/3b87e950352ac65c0f1f6e9efff2b21192138ac0.jpg",
             "http://pic42.nipic.com/20140618/9448607_210533564001_2.jpg",
             "http://pic10.nipic.com/20101027/3578782_201643041706_2.jpg",
-            "http://picview01.baomihua.com/photos/20120805/m_14_634797817549375000_37810757.jpg",
             "http://img2.3lian.com/2014/c7/51/d/26.jpg",
             "http://img3.3lian.com/2013/c1/34/d/93.jpg",
             "http://b.zol-img.com.cn/desk/bizhi/image/3/960x600/1375841395686.jpg",
-            "http://picview01.baomihua.com/photos/20120917/m_14_634834710114218750_41852580.jpg",
             "http://cdn.duitang.com/uploads/item/201311/03/20131103171224_rr2aL.jpeg",
             "http://imgrt.pconline.com.cn/images/upload/upc/tx/wallpaper/1210/17/c1/spcgroup/14468225_1350443478079_1680x1050.jpg",
             "http://pic41.nipic.com/20140518/4135003_102025858000_2.jpg",
@@ -59,6 +57,9 @@ public class ImageListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
         initView();
+    }
+
+    private void initData() {
     }
 
     private void initView() {

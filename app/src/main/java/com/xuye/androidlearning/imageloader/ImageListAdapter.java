@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.MeasureUtils;
@@ -88,8 +87,8 @@ public class ImageListAdapter extends BaseAdapter {
         if (TextUtils.isEmpty(mUrlList.get(position))) {
             holder.imageView.setBackgroundResource(R.drawable.image_default_background);
         } else {
-            // TODO: 17/2/9 使用图片加载器去加载图片
-            holder.imageView.setBackgroundResource(R.drawable.image_default_background);
+            //使用图片加载器去加载图片
+            ImageLoader.getInstance(mContext).bindImage(mUrlList.get(position), holder.imageView);
         }
         return convertView;
     }
