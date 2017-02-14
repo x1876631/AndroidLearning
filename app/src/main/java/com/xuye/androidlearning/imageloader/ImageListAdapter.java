@@ -83,11 +83,9 @@ public class ImageListAdapter extends BaseAdapter {
         holder.imageView.setLayoutParams(new LinearLayout.LayoutParams(
                 MeasureUtils.getScreenWidth(mContext) / 3, MeasureUtils.getScreenWidth(mContext) / 3));
 
-        //如果图片有url，则加载并展示url对应的图片，否则展示默认图片
-        if (TextUtils.isEmpty(mUrlList.get(position))) {
-            holder.imageView.setBackgroundResource(R.drawable.image_default_background);
-        } else {
-            //使用图片加载器去加载图片
+        holder.imageView.setBackgroundResource(R.drawable.image_default_background);
+        if (!TextUtils.isEmpty(mUrlList.get(position))) {
+            //有url，则使用图片加载器去加载图片
             ImageLoader.getInstance(mContext).bindImage(mUrlList.get(position), holder.imageView);
         }
         return convertView;
