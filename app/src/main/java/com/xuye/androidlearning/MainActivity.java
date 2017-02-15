@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.xuye.androidlearning.animationLearning.AnimationLearningActivity;
 import com.xuye.androidlearning.componentLearning.BroadcastLearingActivity;
 import com.xuye.androidlearning.componentLearning.LaunchLearingActivity;
 import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             R.string.main_jump_view_learning, R.string.main_jump_fragment_learning, R.string.main_jump_lauch_learning,
             R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning,
             R.string.main_jump_handler_learning, R.string.main_jump_thread_learning,
-            R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning
+            R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning,
+            R.string.main_jump_animation_learning
     };
 
     @Override
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, WindowLearningActivity.class));
         } else if (getString(mDataResourceArray[8]).equals(content)) {
             startActivity(new Intent(MainActivity.this, ImageListActivity.class));
+        } else if (getString(mDataResourceArray[9]).equals(content)) {
+            startActivity(new Intent(MainActivity.this, AnimationLearningActivity.class));
+            overridePendingTransition(R.anim.anim_enter, 0);
         }
     }
 }
