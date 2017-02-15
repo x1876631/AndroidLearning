@@ -79,14 +79,14 @@ public class ImageListAdapter extends BaseAdapter {
             holder = (ImageListHolder) convertView.getTag();
         }
 
-        //设置下图片的宽高
-        holder.imageView.setLayoutParams(new LinearLayout.LayoutParams(
-                MeasureUtils.getScreenWidth(mContext) / 3, MeasureUtils.getScreenWidth(mContext) / 3));
-
+        //设置图片的宽高
+        int imageWidth = MeasureUtils.getScreenWidth(mContext) / 3;
+        holder.imageView.setLayoutParams(new LinearLayout.LayoutParams(imageWidth, imageWidth));
         holder.imageView.setBackgroundResource(R.drawable.image_default_background);
         if (!TextUtils.isEmpty(mUrlList.get(position))) {
             //有url，则使用图片加载器去加载图片
-            ImageLoader.getInstance(mContext).bindImage(mUrlList.get(position), holder.imageView);
+            ImageLoader.getInstance(mContext)
+                    .bindImage(mUrlList.get(position), holder.imageView, imageWidth, imageWidth);
         }
         return convertView;
     }

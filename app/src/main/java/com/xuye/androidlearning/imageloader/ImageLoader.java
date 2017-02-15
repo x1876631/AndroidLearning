@@ -34,7 +34,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by xuye on 17/2/9
  * 图片加载库
  * 1、最基本的功能：使用网络下载图片并展示在指定的imageview上(使用线程池异步下载图片，然后在主线程上执行展示)
- * 2、优化1，增加内存与本地缓存：由于每次滑动都会触发加载，而最基本的加载每次都是从网络下载，非常耗费流量，所以增加缓存，节省流量
+ * 2、优化1，增加内存与本地缓存功能：由于每次滑动都会触发加载，而最基本的加载每次都是从网络下载，非常耗费流量，所以增加缓存，节省流量
+ * 3、优化2，增加图片压缩功能：
+ * 由于图片过大，导致内存缓存保存不了几张图片，很多片图都得从本地获取会导致滑动时卡顿，另外展示图片也不需要很大的尺寸，所以压缩一下
  */
 public class ImageLoader {
 
@@ -70,6 +72,7 @@ public class ImageLoader {
             diskCacheFile.mkdirs();
         }
         if (diskCacheFile.getUsableSpace() > DISK_CACHE_COUNT) {
+            //【注意！】记得在AndroidManifest里声明读写SD卡的权限，否则无法初始化DiskLruCache
             //如果本地存储位置的可用空间 > 设定的本地磁盘缓存最大值，则可以初始化diskLruCache
             try {
                 mDiskCache = DiskLruCache.open(diskCacheFile, 1, 1, DISK_CACHE_COUNT);
@@ -153,12 +156,12 @@ public class ImageLoader {
      * @param url       要展示的图片的下载地址
      * @param imageView 展示图片用的view
      */
-    public void bindImage(final String url, final ImageView imageView) {
+    public void bindImage(final String url, final ImageView imageView, final int needWidth, final int needHeight) {
         Runnable loadImageTask = new Runnable() {
             @Override
             public void run() {
 //                Log.e(tag, "开始下载图片，url：" + url);
-                Bitmap bitmap = loadBitmap(url);
+                Bitmap bitmap = loadBitmap(url, needWidth, needHeight);
                 if (bitmap != null) {
                     LoadImageResult result = new LoadImageResult(imageView, url, bitmap);
                     Message message = Message.obtain();
@@ -178,18 +181,18 @@ public class ImageLoader {
      * @param urlString 图片url
      * @return 要展示的图片
      */
-    private Bitmap loadBitmap(String urlString) {
+    private Bitmap loadBitmap(String urlString, int needWidth, int needHeight) {
         //先从内存缓存查找，没有则继续下一级加载
         Bitmap bitmap = loadBitmapFromMemory(urlString);
         if (bitmap != null) {
             return bitmap;
         }
         //如果内存缓存找不到，再从本地磁盘缓存里查找，没有则继续下一级加载
-        if ((bitmap = loadBitmapFromDisk(urlString)) != null) {
+        if ((bitmap = loadBitmapFromDisk(urlString, needWidth, needHeight)) != null) {
             return bitmap;
         }
         //如果本地磁盘缓存里也没有，则从网络里下载
-        if ((bitmap = loadBitmapFromNet(urlString)) != null) {
+        if ((bitmap = loadBitmapFromNet(urlString, needWidth, needHeight)) != null) {
             return bitmap;
         }
         //如果经过3次加载都获取不到数据，那很可能是从网络获取后保存到本地失败了，再单纯地从网络获取下
@@ -244,7 +247,7 @@ public class ImageLoader {
      * @param urlString 图片url
      * @return 要展示的图片
      */
-    private Bitmap loadBitmapFromNet(String urlString) {
+    private Bitmap loadBitmapFromNet(String urlString, int needWidth, int needHeight) {
         //如果本地没有缓存，那就无法保存在本地，则直接返回，使用loadBitmapFromNetOnly()获取图片把
         if (mDiskCache == null) {
             return null;
@@ -266,7 +269,7 @@ public class ImageLoader {
                 mDiskCache.flush();
             }
             //从本地读取刚刚下载的图片
-            return loadBitmapFromDisk(urlString);
+            return loadBitmapFromDisk(urlString, needWidth, needHeight);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -279,7 +282,7 @@ public class ImageLoader {
      * @param urlString 图片url
      * @return 要展示的图片
      */
-    private Bitmap loadBitmapFromDisk(String urlString) {
+    private Bitmap loadBitmapFromDisk(String urlString, int needWidth, int needHeight) {
         if (mDiskCache == null) {
             return null;
         }
@@ -291,8 +294,8 @@ public class ImageLoader {
             if (snapshot != null) {
                 FileInputStream fileInputStream = (FileInputStream) snapshot.getInputStream(DISK_CACHE_INDEX);
                 FileDescriptor fileDescriptor = fileInputStream.getFD();
-                // TODO: 17/2/14  这里保持了bitmap原本的大小，其实应该对其大小做一下处理，优化2做
-                bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+                //从本地取图片时，根据要展示的大小，处理下尺寸和大小，减少内存开销
+                bitmap = ImageResizer.decodeBitmapFromFileDescriptor(fileDescriptor, needWidth, needHeight);
                 Log.e(tag, "从本地磁盘缓存获取图片成功! url：" + urlString);
             }
             //如果从本地读取到了图片，则添加到内存缓存中，因为现在使用的图片，很大概率上一会还会用到，所以添加到缓存中，方便下次使用
