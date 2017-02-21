@@ -1,8 +1,11 @@
 package com.xuye.androidlearning;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +17,7 @@ import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
 import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
 import com.xuye.androidlearning.handleLearning.HandlerLearingActivity;
 import com.xuye.androidlearning.imageloader.ImageListActivity;
+import com.xuye.androidlearning.other.OtherLearingActivity;
 import com.xuye.androidlearning.threadLearning.ThreadLearingActivity;
 import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
 import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
@@ -21,6 +25,8 @@ import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    public static final String tag = "MainActivity";
 
     //列表项内容文案
     private ArrayList<String> mData;
@@ -31,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning,
             R.string.main_jump_handler_learning, R.string.main_jump_thread_learning,
             R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning,
-            R.string.main_jump_animation_learning
+            R.string.main_jump_animation_learning,R.string.main_jump_other_learning
     };
 
     @Override
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         for (int id : mDataResourceArray) {
             mData.add(getString(id));
         }
+
     }
 
     private void initView() {
@@ -87,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (getString(mDataResourceArray[9]).equals(content)) {
             startActivity(new Intent(MainActivity.this, AnimationLearningActivity.class));
             overridePendingTransition(R.anim.anim_enter, 0);
+        } else if (getString(mDataResourceArray[10]).equals(content)) {
+            startActivity(new Intent(MainActivity.this, OtherLearingActivity.class));
         }
     }
 }
