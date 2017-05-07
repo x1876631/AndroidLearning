@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--要隐藏的布局-->
+    <RelativeLayout
+        android:id="@+id/id_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#00ccff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Ace "
+            android:textColor="#ffffff"
+            android:textSize="22sp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/id_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_title"/>
+
+
+</RelativeLayout>

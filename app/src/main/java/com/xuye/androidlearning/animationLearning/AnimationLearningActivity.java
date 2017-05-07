@@ -2,6 +2,7 @@ package com.xuye.androidlearning.animationLearning;
 
 import android.animation.IntEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class AnimationLearningActivity extends CommonTestActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        showItemWithCount(new String[]{getString(R.string.click_to_langer)});
+        showItemWithCount(new String[]{getString(R.string.click_to_langer), getString(R.string.test_scroll_animation)});
         showOtherLayout(true);
         mButton = new Button(this);
         mButton.setText(R.string.test_button);
@@ -64,7 +65,8 @@ public class AnimationLearningActivity extends CommonTestActivity {
 
     @Override
     protected void clickButton2() {
-        //点击使测试按钮变长
+        //点击去滑动隐藏展示view测试页
+        startActivity(new Intent(this, ScrollTestActivity.class));
     }
 
     @Override
