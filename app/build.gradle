@@ -1,9 +1,26 @@
+/**
+ * 关于插件plugin：
+ * 如果没有插件，我们想要构建一个 Android 工程，就要自己定义sourceSets，自己定义classpath，自己定义构建步骤等等。
+ * 简单地说，插件其实就是一组配置和任务的合集。
+ * 常用插件：
+ * com.android.application：构建Android app工程
+ * com.android.library：构建Android library，通常输出aar
+ * maven：发布到 maven 仓库
+ *
+ */
 apply plugin: 'com.android.application'
 
+/**
+ * 顺便一提：每次修改了build.gradle，Android studio都会提示sync now，点击后其实就是执行各种指定的task
+ * 比如新添加了一个依赖库，sync就会自动执行依赖库的tasks，完成下载、导入之类的操作
+ */
 android {
+    //编译项目时使用的SDK版本
     compileSdkVersion 23
+    //编译工具版本，一般buildToolsVersion>=compileSdkVersion
     buildToolsVersion "23.0.3"
 
+    //当前子模块的配置，一般就是应用id、允许安装当前app的最小版本、app运行时使用的sdk版本、应用的版本号
     defaultConfig {
         applicationId "com.xuye.androidlearning"
         minSdkVersion 14
@@ -11,17 +28,32 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    //编译模式，通常为debug和release版做不同的配置
     buildTypes {
+
+        //release版，即正式发行版配置
         release {
+            //是否允许混淆代码，混淆一般是为了源码的安全，同时也会减少apk文件的大小(因为类名字被改少了，用的字节数少了)
             minifyEnabled false
+            //混淆规则文件的位置，这里指定了2个文件：/tools/proguard/proguard-android.txt(一些基本会混淆规则)、proguard-rules.pro
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        //关闭lint检查的error
+        abortOnError false
     }
 }
 
 dependencies {
+    //编译libs目录下的所有jar包
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     testCompile 'junit:junit:4.12'
+
+    //依赖的第三方库，com.android.support这个基本都需要依赖，用于低版本兼容高版本特性，库的版本一般和compileSdkVersion一样
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.jakewharton:disklrucache:2.0.2'
 }

@@ -1,14 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+// 根目录做一些通用配置，可以在各个子模块当中使用
 
 buildscript {
+    //声明依赖库所在的仓库，一般是jcenter()或者mavenCentral()，jcenter()兼容maven中心仓库，而且性能更优
     repositories {
         jcenter()
     }
+
+    //
     dependencies {
+        //声明gradle插件版本
         classpath 'com.android.tools.build:gradle:2.0.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //这个地方官方建议不要放应用的依赖库，而是把依赖库放到对应的子模块的build.gradle里
     }
 }
 

@@ -1,1 +1,3 @@
+// settings文件是用来include子模块的，需要集成的子模块，都需要在这里声明一下
+
 include ':app'
