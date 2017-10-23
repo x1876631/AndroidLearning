@@ -20,6 +20,7 @@ public class OtherLearingActivity extends CommonTestActivity {
         showItemWithCount(new String[]{
                 getString(R.string.show_phone_tel)
         });
+        MemoryLeakTestHelper.getInstance().log(this);
     }
 
     @Override

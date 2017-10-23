@@ -56,4 +56,6 @@ dependencies {
     //依赖的第三方库，com.android.support这个基本都需要依赖，用于低版本兼容高版本特性，库的版本一般和compileSdkVersion一样
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.jakewharton:disklrucache:2.0.2'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }
