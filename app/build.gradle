@@ -18,7 +18,7 @@ android {
     //编译项目时使用的SDK版本
     compileSdkVersion 23
     //编译工具版本，一般buildToolsVersion>=compileSdkVersion
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "25.0.0"
 
     //当前子模块的配置，一般就是应用id、允许安装当前app的最小版本、app运行时使用的sdk版本、应用的版本号
     defaultConfig {
