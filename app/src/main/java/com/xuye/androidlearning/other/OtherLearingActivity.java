@@ -1,6 +1,7 @@
 package com.xuye.androidlearning.other;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ public class OtherLearingActivity extends CommonTestActivity {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
                 getString(R.string.show_phone_tel), getString(R.string.no_ui_show_toast),
-                getString(R.string.ui_show_toast)
+                getString(R.string.jump_test_span)
         });
     }
 
@@ -59,6 +60,6 @@ public class OtherLearingActivity extends CommonTestActivity {
     @Override
     protected void clickButton3() {
         super.clickButton3();
-        Toast.makeText(getApplicationContext(), "UI线程，测试application弹toast", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, TestSpannableActivity.class));
     }
 }

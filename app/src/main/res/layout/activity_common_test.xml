@@ -19,7 +19,8 @@
         <TextView
             android:id="@+id/common_test_button1"
             style="@style/MainJumpText"
-            android:visibility="visible"
+            android:visibility="gone"
+            tools:visibility="visible"
             tools:text="@string/lauch_activity_1"
             />
 
@@ -61,7 +62,13 @@
 
         <TextView
             android:id="@+id/common_test_other_text_view"
-            style="@style/MainJumpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_common_button"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/A2"
+            android:textSize="16sp"
             android:visibility="visible"
             tools:text="@string/button_common_click_tip"
             />

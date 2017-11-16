@@ -10,7 +10,7 @@
     <ListView
         android:id="@+id/main_activity_content_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layoutAnimation="@anim/anim_main_list"
-        />
+        android:layout_height="wrap_content" />
+        <!--android:layoutAnimation="@anim/anim_main_list"-->
+
 </RelativeLayout>
