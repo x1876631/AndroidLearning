@@ -11,7 +11,9 @@ public class MemoryLeakTestHelper {
     private static final String tag = "MemoryLeakTestHelper";
 
     private static MemoryLeakTestHelper sInstance;
-    private Context mContext;//让该单例持有外部activity，基本就泄露了
+    //让该变量持有外部activity，由于该对象是单例，生命周期和application一样长，会一直持有着外部activity，导致泄露
+    private Context mContext;
+
 
     private MemoryLeakTestHelper() {
 

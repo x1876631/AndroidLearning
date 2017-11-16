@@ -129,6 +129,12 @@
             />
 
         <activity
+            android:name=".memoryLeak.MemoryLeakLearingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
             android:name=".other.OtherLearingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"

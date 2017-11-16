@@ -12,6 +12,7 @@
     <string name="main_jump_window_learning">window学习</string>
     <string name="main_jump_imageloader_learning">图片加载学习</string>
     <string name="main_jump_animation_learning">动画学习</string>
+    <string name="main_jump_memory_leak_learning">内存泄露学习</string>
     <string name="main_jump_other_learning">杂七杂八学习</string>
 
     <string name="show_fragment">show_fragment</string>
@@ -53,4 +54,12 @@
 
     <string name="show_phone_tel">获取本机号码</string>
     <string name="phone_tel">本机号码为：</string>
+    <string name="no_ui_show_toast">非UI线程弹toast</string>
+    <string name="ui_show_toast">UI线程弹toast</string>
+
+
+    <string name="memory_leak_tip1">匿名内部类runnable泄露</string>
+    <string name="memory_leak_tip2">单例泄露</string>
+    <string name="memory_leak_tip3">handler泄露</string>
+
 </resources>

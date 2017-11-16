@@ -1,5 +1,6 @@
 package com.xuye.androidlearning.other;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
 import android.widget.Toast;
@@ -20,11 +21,9 @@ public class OtherLearingActivity extends CommonTestActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
-                getString(R.string.show_phone_tel), "非UI线程弹toast", "内存泄露测试"
+                getString(R.string.show_phone_tel), getString(R.string.no_ui_show_toast),
+                getString(R.string.ui_show_toast)
         });
-
-
-        Toast.makeText(getApplicationContext(), "UI线程，测试application弹toast", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -35,19 +34,31 @@ public class OtherLearingActivity extends CommonTestActivity {
     @Override
     protected void clickButton2() {
         super.clickButton2();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                Toast.makeText(getApplicationContext(), "非UI线程，测试application弹toast", Toast.LENGTH_SHORT).show();
-                Looper.loop();
-            }
-        }).start();
+        new Thread(new MyTestRunnable(getApplicationContext())).start();
+    }
+
+    /**
+     * 静态内部类不会持有外部类引用，不会有内存泄露
+     */
+    private static class MyTestRunnable implements Runnable {
+
+        private Context mContext;
+
+        public MyTestRunnable(Context context) {
+            mContext = context.getApplicationContext();
+        }
+
+        @Override
+        public void run() {
+            Looper.prepare();
+            Toast.makeText(mContext, "非UI线程，测试application弹toast", Toast.LENGTH_SHORT).show();
+            Looper.loop();
+        }
     }
 
     @Override
     protected void clickButton3() {
         super.clickButton3();
-        MemoryLeakTestHelper.getInstance().log(this);
+        Toast.makeText(getApplicationContext(), "UI线程，测试application弹toast", Toast.LENGTH_SHORT).show();
     }
 }
