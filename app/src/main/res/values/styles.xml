@@ -18,4 +18,8 @@
         <item name="android:drawableBottom">@drawable/default_divider</item>
     </style>
 
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/main_theme</item>
+    </style>
+
 </resources>

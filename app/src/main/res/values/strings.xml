@@ -13,7 +13,7 @@
     <string name="main_jump_imageloader_learning">图片加载学习</string>
     <string name="main_jump_animation_learning">动画学习</string>
     <string name="main_jump_memory_leak_learning">内存泄露学习</string>
-    <string name="main_jump_other_learning">杂七杂八学习</string>
+    <string name="main_jump_other_learning">未分类学习</string>
 
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
