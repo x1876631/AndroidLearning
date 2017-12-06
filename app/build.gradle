@@ -7,14 +7,22 @@
  * com.android.library：构建Android library，通常输出aar
  * maven：发布到 maven 仓库
  *
+ * 【补充】
+ * android插件有2个必须设置的参数：buildToolsVersion和compileSdkVersion
  */
 apply plugin: 'com.android.application'
 
 /**
- * 顺便一提：每次修改了build.gradle，Android studio都会提示sync now，点击后其实就是执行各种指定的task
+ * android {}里设置了编译Android项目的参数
+ * 【顺便一提】
+ * 每次修改了build.gradle，Android studio都会提示sync now，点击后其实就是执行各种指定的task
  * 比如新添加了一个依赖库，sync就会自动执行依赖库的tasks，完成下载、导入之类的操作
+ *
+ * 执行./gradlew task可以查看所有的task
  */
 android {
+    println '---------android configure phase --------'
+
     //编译项目时使用的SDK版本
     compileSdkVersion 23
     //编译工具版本，一般buildToolsVersion>=compileSdkVersion

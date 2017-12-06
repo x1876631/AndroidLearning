@@ -1,0 +1,49 @@
+/**
+ * 执行gradle tasks就可以执行这些语句了
+ * 为什么会执行？因为gradle执行时在配置阶段会根据build.gradle创建project对象，每个project对象有多个task对象，
+ * 配置阶段会创建、配置task以及相关信息。build.gradle的代码在配置阶段会被执行
+ * 代码语法含义？
+ */
+println '--------gradleLearningTest--------configuer phase-----'
+
+
+println 'gradleHomeDir: ' + gradle.gradleHomeDir
+println 'gradleUserHomeDir: ' + gradle.gradleUserHomeDir
+println 'gradleVersion: ' + gradle.gradleVersion
+
+version = "111"
+
+//定义一个task
+task A {
+    //配置阶段执行该语句
+    println "--------A--------configuer phase-----"
+//    doFirst {
+//        //doFirst会先于doLast执行
+//        println "----A : doFirst----"
+//    }
+
+    doLast {
+        //执行阶段执行
+        println "----A : doLast----"
+        //输出定义在本页面的属性
+        println "----A do something---- Version:$version"
+    }
+}
+
+//定义某个task执行前的动作，执行阶段执行
+A.doFirst {
+    println "----A : doFirst----"
+}
+
+task B {
+    println "--------B--------configuer phase-----"
+    doFirst {
+        println "----B : doFirst----"
+    }
+    doLast {
+        println "----B : doLast----"
+    }
+}
+
+A.dependsOn B
+
