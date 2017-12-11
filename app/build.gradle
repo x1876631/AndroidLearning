@@ -53,11 +53,23 @@ android {
         //关闭lint检查的error
         abortOnError false
     }
+
+    //官方文档：https://developer.android.com/studio/build/build-variants.html?hl=zh-cn
+    sourceSets {
+        main {
+            //res.srcDirs声明了想要的资源所在的路径，默认采用src/main/res，
+            //这里增加了一个路径src/main/res-auto，使得该目录下的文件也变为了资源
+            res.srcDirs = ['src/main/res', 'src/main/res-auto']
+        }
+    }
 }
 
+//当前project编译所需要的依赖库
 dependencies {
     //编译libs目录下的所有jar包
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':base')
 
     testCompile 'junit:junit:4.12'
 
@@ -66,4 +78,43 @@ dependencies {
     compile 'com.jakewharton:disklrucache:2.0.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+}
+
+//根据gradle.properties生成配置文件on_test_config.xml，供代码里获取是否是测试版
+task setOnTestConfig {
+    doLast {
+        println "----run setOnTestConfig----"
+        println rootDir
+        def file = new File(rootDir, 'app/src/main/res-auto/values/on_test_config.xml');
+        if (file.exists()) {
+            file.withWriter('utf-8') {
+                writer ->
+                    writer.writeLine '<?xml version="1.0" encoding="utf-8"?>'
+                    writer.writeLine '<!-- 注意： 这个文件在打包时由gradle脚本自动生成，请勿手动修改 -->'
+                    writer.writeLine '<resources>'
+                    if (Boolean.parseBoolean(project.on_test)) {
+                        writer.writeLine '  <bool name="on_test">true</bool>'
+                    } else {
+                        writer.writeLine '  <bool name="on_test">false</bool>'
+                    }
+                    writer.writeLine '</resources>'
+            }
+        } else {
+            throw new GradleException('app_config.xml does not exists!')
+        }
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == "assembleDebug") {
+        println "----whenTaskAdded : assembleDebug----"
+        task.mustRunAfter setOnTestConfig
+    }
+}
+
+//自定义的打包task，依赖task：setOnTestConfig，assembleDebug
+task bfd(dependsOn: ["setOnTestConfig", "assembleDebug"]) {
+    doLast {
+        println "----run bfd----"
+    }
 }

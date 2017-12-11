@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 注意： 这个文件在打包时由gradle脚本自动生成，请勿手动修改 -->
+<resources>
+  <bool name="on_test">true</bool>
+</resources>

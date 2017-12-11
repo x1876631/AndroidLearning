@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        if (getResources().getBoolean(R.bool.on_test)) {
+            setTitle("测试版");
+        } else {
+            setTitle("正式版");
+        }
         setContentView(R.layout.activity_main);
         initData();
         initView();
