@@ -43,7 +43,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        //这里点击R.bool.on_test时会展示多个选项，实际生产apk时用的是主app库里on_test_config.xml的参数。
+        //至于为什么没用base的on_test参数，则与打包时指定的资源编译顺序有关
+        //关于资源合并覆盖的参考：http://leenjewel.github.io/blog/2015/12/02/ye-shuo-android-apk-da-bao/
         if (getResources().getBoolean(R.bool.on_test)) {
+            //测试读取on_test了哪个on_test参数
             setTitle("测试版");
         } else {
             setTitle("正式版");
