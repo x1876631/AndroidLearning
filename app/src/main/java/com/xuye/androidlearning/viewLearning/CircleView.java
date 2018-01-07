@@ -79,7 +79,7 @@ public class CircleView extends View {
             Log.e(tag, "属性名：" + attrName + " , 属性值：" + attrVal);
         }
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
-        mColor = typedArray.getColor(R.styleable.CircleView_circle_color, Color.RED);
+        mColor = typedArray.getColor(R.styleable.CircleView_my_circle_color, Color.RED);
         typedArray.recycle();
     }
 

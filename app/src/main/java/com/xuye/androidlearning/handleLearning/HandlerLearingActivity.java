@@ -49,7 +49,7 @@ public class HandlerLearingActivity extends CommonTestActivity {
                 Log.e(tag, "[Thread#2]mBooleanThreadLocal=" + mBooleanThreadLocal.get());
                 //在当前线程里存了个looper，此looper持有当前线程的引用，和一个新的消息队列
                 Looper.prepare();
-                /**
+                /*
                  * 在子线程创建handler时，需要先创建looper，否则会报异常
                  * 创建handler时，这个handler会持有当前线程里的looper和消息队列
                  */
@@ -59,7 +59,7 @@ public class HandlerLearingActivity extends CommonTestActivity {
                         switch (msg.what) {
                             case 1:
                                 // TODO: 17/1/13   api 21、22 为什么没弹出toast？ 但api 23可以？
-                                /**
+                                /*
                                  * api 21、22 为什么没弹出toast？ 但api 23可以？
                                  * 看了toast的源码，正常在TN类的handleShow方法里，调用mWM.addView(mView, mParams)后，
                                  * 就可以展示toast了，但是addView要展示view需要使用UI线程的handler，而现在是在子线程2里，所以无法展示。
@@ -77,14 +77,14 @@ public class HandlerLearingActivity extends CommonTestActivity {
                         }
                     }
                 };
-                /**
+                /*
                  * handler发送了个消息，其实是在消息队里里插入了一条消息，消息的target是此handler
                  * 而之前Looper.loop();已经开启了循环读取消息，就会读到这条消息
                  * 然后调用消息里绑定的handler去处理这个消息，执行此handler的handleMessage
                  */
                 handler.sendEmptyMessage(1);
 
-                /**
+                /*
                  *  Looper.loop();拿到当前线程的消息队列，无限循环地读取消息队列里的消息，
                  *  如果读到消息，就给用消息绑定的handler去处理这个消息，
                  *  如果读不到消息，就一直阻塞
