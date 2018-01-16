@@ -6,7 +6,7 @@
 
     <declare-styleable name="SuperCircleView">
 
-        <!-- 圆的半价 -->
+        <!-- 圆的半径 -->
         <attr name="min_circle_radio" format="integer"/>
 
         <!-- 圆环的宽度 -->

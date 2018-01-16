@@ -64,7 +64,8 @@
 
 
     <FrameLayout
-        android:layout_width="300dp"
+        android:id="@+id/SuperCircleViewLayout"
+        android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_gravity="center">
 
@@ -73,17 +74,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:min_circle_radio="300"
-            app:ring_width="60"/>
+            app:min_circle_radio="150"
+            app:ring_width="20"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="10dp"
             android:text="信息完成度"
             android:textColor="#CFD5DE"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
 
         <LinearLayout
@@ -99,14 +100,28 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textColor="#506946"
-                android:textSize="80sp"/>
+                android:textSize="20sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%"
-                android:textSize="28sp"/>
+                android:textSize="20sp"/>
         </LinearLayout>
     </FrameLayout>
+
+    <com.xuye.androidlearning.viewLearning.NestedParentLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/A1"
+        >
+
+        <com.xuye.androidlearning.viewLearning.NestedChildView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/A11"
+            />
+
+    </com.xuye.androidlearning.viewLearning.NestedParentLayout>
 
 </RelativeLayout>

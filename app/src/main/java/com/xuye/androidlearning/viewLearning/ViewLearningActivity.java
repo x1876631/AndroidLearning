@@ -27,6 +27,16 @@ public class ViewLearningActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.tv);
         mSuperCircleView = (SuperCircleView) findViewById(R.id.superview);
         mSuperCircleView.setShowSelect(false);
+        refreshCircleView();
+        mSuperCircleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refreshCircleView();
+            }
+        });
+    }
+
+    private void refreshCircleView() {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 100);
         valueAnimator.setTarget(textView);
         valueAnimator.setDuration(2000);
