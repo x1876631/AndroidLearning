@@ -10,12 +10,9 @@ import com.xuye.androidlearning.R;
 
 /**
  * Created by xuye on 16/11/18
- * view学习相关的页面
+ * 自定义view学习相关的页面
  */
 public class ViewLearningActivity extends AppCompatActivity {
-    private ScrollTestView mScrollTestView;
-    private View mTestView;
-
 
     SuperCircleView mSuperCircleView;
     TextView textView;
@@ -49,37 +46,5 @@ public class ViewLearningActivity extends AppCompatActivity {
             }
         });
         valueAnimator.start();
-    }
-
-    private void scrollTest() {
-//        initScrollTestView();
-//        setTestScroller();
-//        setScrollAnimator();
-    }
-
-//    private void initScrollTestView() {
-//        mScrollTestView = (ScrollTestView) findViewById(R.id.ScrollTestView);
-//        mTestView = findViewById(R.id.testView);
-//    }
-
-    private void setTestScroller() {
-        if (mScrollTestView != null) {
-            mScrollTestView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mScrollTestView
-                            .smoothScrollWithScroller(ViewLearningActivity.this, ScrollTestView.SCROLL_LENGTH, 0);
-                }
-            });
-        }
-    }
-
-    private void setScrollAnimator() {
-        mScrollTestView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mScrollTestView.smoothScrollWithAnimator(mTestView, ScrollTestView.SCROLL_LENGTH);
-            }
-        });
     }
 }

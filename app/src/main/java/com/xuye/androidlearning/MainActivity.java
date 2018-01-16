@@ -17,6 +17,7 @@ import com.xuye.androidlearning.imageloader.ImageListActivity;
 import com.xuye.androidlearning.memoryLeak.MemoryLeakLearingActivity;
 import com.xuye.androidlearning.other.OtherLearingActivity;
 import com.xuye.androidlearning.threadLearning.ThreadLearingActivity;
+import com.xuye.androidlearning.viewLearning.ViewEventLearningActivity;
 import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
 import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
 
@@ -31,12 +32,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     //列表项内容文案资源id，如果想增加列表项，每次需要加文案和点击事件
     private int[] mDataResourceArray = {
-            R.string.main_jump_view_learning, R.string.main_jump_fragment_learning, R.string.main_jump_lauch_learning,
+            R.string.main_jump_view_learning,
+            R.string.main_jump_fragment_learning, R.string.main_jump_lauch_learning,
             R.string.main_jump_service_learning, R.string.main_jump_broadcast_learning,
             R.string.main_jump_handler_learning, R.string.main_jump_thread_learning,
             R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning,
             R.string.main_jump_animation_learning, R.string.main_jump_memory_leak_learning,
-            R.string.main_jump_other_learning,
+            R.string.main_jump_other_learning, R.string.main_jump_view_event_learning,
     };
 
     @Override
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String content = (String) parent.getItemAtPosition(position);
         if (getString(mDataResourceArray[0]).equals(content)) {
+            //自定义view
             startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
         } else if (getString(mDataResourceArray[1]).equals(content)) {
             startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
@@ -107,6 +110,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, MemoryLeakLearingActivity.class));
         } else if (getString(mDataResourceArray[11]).equals(content)) {
             startActivity(new Intent(MainActivity.this, OtherLearingActivity.class));
+        } else if (getString(mDataResourceArray[12]).equals(content)) {
+            //view事件
+            startActivity(new Intent(MainActivity.this, ViewEventLearningActivity.class));
         }
     }
 }

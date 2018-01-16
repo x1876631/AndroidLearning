@@ -42,6 +42,12 @@
             />
 
         <activity
+            android:name=".viewLearning.ViewEventLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
             android:name=".fragmentLearning.FragmentLearningActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"

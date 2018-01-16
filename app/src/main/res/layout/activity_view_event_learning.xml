@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/main_activity_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xuye.androidlearning.viewLearning.ViewLearningActivity">
+
+    <com.xuye.androidlearning.viewLearning.DispatchTestViewGroup
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/holo_red_light"
+        >
+
+        <com.xuye.androidlearning.viewLearning.DispatchTestView2
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/black"
+            />
+
+        <com.xuye.androidlearning.viewLearning.DispatchTestViewGroup
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/holo_green_light"
+            />
+    </com.xuye.androidlearning.viewLearning.DispatchTestViewGroup>
+
+</RelativeLayout>

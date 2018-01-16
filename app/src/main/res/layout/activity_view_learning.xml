@@ -8,61 +8,6 @@
     android:layout_height="match_parent"
     tools:context="com.xuye.androidlearning.viewLearning.ViewLearningActivity">
 
-    <!--随手滑动的view-->
-    <!--<FollowHandView-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:background="@android:color/holo_red_light"-->
-    <!--/>-->
-
-    <!--<ScrollTestView-->
-    <!--android:id="@+id/ScrollTestView"-->
-    <!--android:layout_width="300dp"-->
-    <!--android:layout_height="300dp"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:background="@android:color/holo_red_light"-->
-    <!--&gt;-->
-    <!--<TextView-->
-    <!--android:id="@+id/testView"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:background="@android:color/holo_green_light"-->
-    <!--android:text="测试view"-->
-    <!--/>-->
-    <!--</ScrollTestView>-->
-
-    <!--<DispatchTestViewGroup-->
-    <!--android:layout_width="300dp"-->
-    <!--android:layout_height="300dp"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:background="@android:color/holo_red_light"-->
-    <!--&gt;-->
-
-    <!--<DispatchTestView2-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:background="@android:color/black"-->
-    <!--/>-->
-
-    <!--<DispatchTestView-->
-    <!--android:layout_width="80dp"-->
-    <!--android:layout_height="80dp"-->
-    <!--android:background="@android:color/holo_green_light"-->
-    <!--/>-->
-    <!--</DispatchTestViewGroup>-->
-
-    <!--<com.xuye.androidlearning.viewLearning.CircleView-->
-    <!--android:id="@+id/circle_view"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:background="@android:color/black"-->
-    <!--android:padding="@dimen/size_20"-->
-    <!--app:circle_color="@android:color/holo_green_light"-->
-    <!--/>-->
-
-
     <FrameLayout
         android:id="@+id/SuperCircleViewLayout"
         android:layout_width="200dp"

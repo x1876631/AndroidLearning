@@ -2,7 +2,8 @@
     <string name="app_name">AndroidLearning</string>
 
     <!--首页列表项数据-->
-    <string name="main_jump_view_learning">view知识学习页</string>
+    <string name="main_jump_view_learning">自定义view学习页</string>
+    <string name="main_jump_view_event_learning">view事件学习页</string>
     <string name="main_jump_fragment_learning">fragment学习页</string>
     <string name="main_jump_lauch_learning">activity启动学习页</string>
     <string name="main_jump_service_learning">service学习</string>
