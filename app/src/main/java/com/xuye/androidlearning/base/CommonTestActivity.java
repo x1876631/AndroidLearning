@@ -14,6 +14,8 @@ import com.xuye.androidlearning.R;
  */
 public abstract class CommonTestActivity extends AppCompatActivity implements View.OnClickListener {
 
+    protected static final String tag = "xuye";
+
     //包含了按钮的linearLayout
     protected LinearLayout mButtonLayout;
 
@@ -100,4 +102,14 @@ public abstract class CommonTestActivity extends AppCompatActivity implements Vi
     protected void clickButton3() {}
 
     protected void clickButton4() {}
+
+    protected boolean setButton1Content(String content) {
+        TextView textView = (TextView) findViewById(R.id.common_test_button1);
+        if (textView != null) {
+            textView.setText(content);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

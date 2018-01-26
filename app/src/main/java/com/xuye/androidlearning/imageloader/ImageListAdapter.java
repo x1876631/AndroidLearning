@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.xuye.androidlearning.R;
-import com.xuye.androidlearning.base.MeasureUtils;
+import com.xuye.androidlearning.base.util.MeasureUtils;
 
 import java.util.ArrayList;
 

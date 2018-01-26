@@ -14,6 +14,7 @@ import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
 import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
 import com.xuye.androidlearning.handleLearning.HandlerLearingActivity;
 import com.xuye.androidlearning.imageloader.ImageListActivity;
+import com.xuye.androidlearning.ioLearning.IOLearningActivity;
 import com.xuye.androidlearning.memoryLeak.MemoryLeakLearingActivity;
 import com.xuye.androidlearning.other.OtherLearingActivity;
 import com.xuye.androidlearning.threadLearning.ThreadLearingActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning,
             R.string.main_jump_animation_learning, R.string.main_jump_memory_leak_learning,
             R.string.main_jump_other_learning, R.string.main_jump_view_event_learning,
+            R.string.main_jump_io_learning
     };
 
     @Override
@@ -113,6 +115,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (getString(mDataResourceArray[12]).equals(content)) {
             //view事件
             startActivity(new Intent(MainActivity.this, ViewEventLearningActivity.class));
+        }else if (getString(mDataResourceArray[13]).equals(content)) {
+            //io
+            startActivity(new Intent(MainActivity.this, IOLearningActivity.class));
         }
     }
 }

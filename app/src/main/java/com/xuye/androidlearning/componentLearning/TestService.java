@@ -9,8 +9,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.xuye.androidlearning.util.LogUtil;
-
 /**
  * Created by xuye on 17/1/11
  * 测试用service

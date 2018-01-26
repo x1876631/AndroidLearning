@@ -15,6 +15,7 @@
     <string name="main_jump_animation_learning">动画学习</string>
     <string name="main_jump_memory_leak_learning">内存泄露学习</string>
     <string name="main_jump_other_learning">未分类学习</string>
+    <string name="main_jump_io_learning">io学习</string>
 
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
@@ -64,5 +65,7 @@
     <string name="memory_leak_tip1">匿名内部类runnable泄露</string>
     <string name="memory_leak_tip2">单例泄露</string>
     <string name="memory_leak_tip3">handler泄露</string>
+
+    <string name="io_share_preferences">sp测试</string>
 
 </resources>

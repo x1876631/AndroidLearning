@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
-import com.xuye.androidlearning.base.DeviceUtils;
+import com.xuye.androidlearning.base.util.DeviceUtils;
 
 /**
  * Created by xuye on 17/02/21

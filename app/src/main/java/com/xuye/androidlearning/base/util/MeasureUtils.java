@@ -1,4 +1,4 @@
-package com.xuye.androidlearning.base;
+package com.xuye.androidlearning.base.util;
 
 import android.content.Context;
 import android.graphics.Point;

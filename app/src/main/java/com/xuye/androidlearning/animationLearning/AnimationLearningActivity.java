@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
-import com.xuye.androidlearning.base.MeasureUtils;
+import com.xuye.androidlearning.base.util.MeasureUtils;
 
 /**
  * Created by xuye on 17/2/15

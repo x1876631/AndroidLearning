@@ -1,4 +1,4 @@
-package com.xuye.androidlearning.util;
+package com.xuye.androidlearning.base.util;
 
 import android.util.Log;
 

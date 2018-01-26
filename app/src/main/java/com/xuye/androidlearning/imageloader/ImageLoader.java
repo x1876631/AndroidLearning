@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.jakewharton.disklrucache.DiskLruCache;
-import com.xuye.androidlearning.base.FileUtils;
+import com.xuye.androidlearning.base.util.FileUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
