@@ -15,7 +15,8 @@ import com.xuye.androidlearning.base.util.TimeUtils;
  */
 public class IOLearningActivity extends CommonTestActivity {
 
-    private final static String SP_KEY_NAME = "sp_name";
+    private final static String SP_KEY_FOR_NAME = "name";
+    private final static String SP_KEY_FOR_CONTENT = "content";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,9 @@ public class IOLearningActivity extends CommonTestActivity {
                 getString(R.string.io_share_preferences)});
     }
 
+    /**
+     * sp学习参考：http://www.qingpingshan.com/rjbc/az/303526.html
+     */
     @Override
     protected void clickButton1() {
         /*
@@ -34,9 +38,10 @@ public class IOLearningActivity extends CommonTestActivity {
          * 4、进程不安全，线程安全，why？创建sp时有锁，多次获取的是同一个实例，线程安全
          */
         SharedPreferences sp1 = getSharedPreferences("io_learning", MODE_PRIVATE);
+
         //apply异步写入数据
-        sp1.edit().putString(SP_KEY_NAME, "sp1").apply();
-        setButton1Content(sp1.getString(SP_KEY_NAME, "null"));
+        sp1.edit().putString(SP_KEY_FOR_NAME, "sp1").apply();
+        setButton1Content(sp1.getString(SP_KEY_FOR_NAME, "null"));
 
 
         //getDefault其实就是对getsp封装了一下，name是"包名+_preferences"
@@ -49,7 +54,7 @@ public class IOLearningActivity extends CommonTestActivity {
         }
         Log.e(tag, "生成对象 耗时: " + TimeUtils.getTimeConsuming(beginTime));//0.88s
         beginTime = System.currentTimeMillis();
-        sp2.edit().putString(SP_KEY_NAME, sb.toString()).commit();
+        sp2.edit().putString(SP_KEY_FOR_NAME, sb.toString()).commit();
         Log.e(tag, "执行commit 耗时: " + TimeUtils.getTimeConsuming(beginTime));//0.79s
 
         //再测一下apply操作
@@ -59,7 +64,7 @@ public class IOLearningActivity extends CommonTestActivity {
 
     private void setSpApply(SharedPreferences sp, String content) {
         long beginTime = System.currentTimeMillis();
-        sp.edit().putString("sp_content", content).apply();
+        sp.edit().putString(SP_KEY_FOR_CONTENT, content).apply();
         Log.e(tag, "执行apply 耗时: " + TimeUtils.getTimeConsuming(beginTime));
     }
 }
