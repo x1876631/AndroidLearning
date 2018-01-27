@@ -67,6 +67,8 @@
     <string name="memory_leak_tip3">handler泄露</string>
 
     <string name="io_share_preferences">sp读写测试</string>
-    <string name="io_serializable_and_parcelable">序列化测试</string>
+    <string name="io_serializable_test">serializable测试</string>
+    <string name="io_parcelable_test">Parcelable测试</string>
+    <string name="io_parcelable_get_data">获取Parcelable序列化数据</string>
 
 </resources>

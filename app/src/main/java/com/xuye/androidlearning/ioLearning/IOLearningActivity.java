@@ -1,5 +1,6 @@
 package com.xuye.androidlearning.ioLearning;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -31,7 +32,10 @@ public class IOLearningActivity extends CommonTestActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
-                getString(R.string.io_share_preferences), getString(R.string.io_serializable_and_parcelable)});
+                getString(R.string.io_share_preferences),
+                getString(R.string.io_serializable_test),
+                getString(R.string.io_parcelable_test)}
+        );
     }
 
     /**
@@ -80,8 +84,14 @@ public class IOLearningActivity extends CommonTestActivity {
     @Override
     protected void clickButton2() {
         super.clickButton2();
-        //参考：http://blog.csdn.net/u014606081/article/details/71137243
+        serializableTest();
+    }
 
+    /**
+     * 测试serializable
+     * 使用参考：http://blog.csdn.net/u014606081/article/details/71137243
+     */
+    private void serializableTest() {
         /*
          * 将对象写入文件，写入文件内容是这样的：
          * ??sr6com.xuye.androidlearning.ioLearning.SerializableObject?? 9ԇ??LfieldtLjava/lang/String;xpt123
@@ -110,8 +120,25 @@ public class IOLearningActivity extends CommonTestActivity {
             e.printStackTrace();
         }
         if (so2 != null) {
-            ////序列化后：SerializableObject{field='123', transient_field=0}
+            //序列化后：SerializableObject{field='123', transient_field=0}
             Log.e("xuye", "序列化后，对象的内容：" + so2.toString());
         }
+    }
+
+    @Override
+    protected void clickButton3() {
+        super.clickButton3();
+        parcelableTest();
+    }
+
+    /**
+     * 测试parcelable
+     * 使用参考：https://www.jianshu.com/p/97503d7faaf3
+     */
+    private void parcelableTest() {
+        ParcelableObject po = new ParcelableObject("xy", 123);
+        Intent intent = new Intent(this, ParcelableTestActivity.class);
+        intent.putExtra("po", po);
+        startActivity(intent);
     }
 }

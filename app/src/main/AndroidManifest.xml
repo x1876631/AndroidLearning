@@ -164,6 +164,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
+
+        <activity
+            android:name=".ioLearning.ParcelableTestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
