@@ -13,6 +13,21 @@ import java.security.NoSuchAlgorithmException;
  */
 public class FileUtils {
 
+
+    public static String getInnerSDCardPath() {
+        return Environment.getExternalStorageDirectory().getPath();
+    }
+
+    public static File getAppDefaultFilePath() {
+//        Log.e("xuye", getInnerSDCardPath());
+        File file = new File(getInnerSDCardPath(), "/com.xuye.androidlearning/");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
+    }
+
+
     /**
      * @param context  context
      * @param pathName 缓存路径最后的标识符

@@ -4,10 +4,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
+import com.xuye.androidlearning.base.util.FileUtils;
 import com.xuye.androidlearning.base.util.TimeUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by xuye on 18/1/26
@@ -22,7 +31,7 @@ public class IOLearningActivity extends CommonTestActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
-                getString(R.string.io_share_preferences)});
+                getString(R.string.io_share_preferences), getString(R.string.io_serializable_and_parcelable)});
     }
 
     /**
@@ -66,5 +75,43 @@ public class IOLearningActivity extends CommonTestActivity {
         long beginTime = System.currentTimeMillis();
         sp.edit().putString(SP_KEY_FOR_CONTENT, content).apply();
         Log.e(tag, "执行apply 耗时: " + TimeUtils.getTimeConsuming(beginTime));
+    }
+
+    @Override
+    protected void clickButton2() {
+        super.clickButton2();
+        //参考：http://blog.csdn.net/u014606081/article/details/71137243
+
+        /*
+         * 将对象写入文件，写入文件内容是这样的：
+         * ??sr6com.xuye.androidlearning.ioLearning.SerializableObject?? 9ԇ??LfieldtLjava/lang/String;xpt123
+         */
+        SerializableObject so = new SerializableObject("123", 456);
+        //序列化前：SerializableObject{field='123', transient_field=456}
+        Log.e("xuye", "序列化前，对象的内容：" + so.toString());
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream(new File(FileUtils.getAppDefaultFilePath(), "io_serializable.txt")));
+            out.writeObject(so);
+            out.close();
+            Toast.makeText(getApplicationContext(), "数据已序列化到本地", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Log.e("xuye", "io异常");
+            e.printStackTrace();
+        }
+
+        SerializableObject so2 = null;
+        try {
+            ObjectInputStream in = new ObjectInputStream(
+                    new FileInputStream(new File(FileUtils.getAppDefaultFilePath(), "io_serializable.txt")));
+            so2 = (SerializableObject) in.readObject();
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (so2 != null) {
+            ////序列化后：SerializableObject{field='123', transient_field=0}
+            Log.e("xuye", "序列化后，对象的内容：" + so2.toString());
+        }
     }
 }
