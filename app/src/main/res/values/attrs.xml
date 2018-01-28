@@ -33,4 +33,9 @@
         <!-- 是否显示断 -->
         <attr name="is_show_select" format="boolean"/>
     </declare-styleable>
+
+
+    <declare-styleable name="ComposeView">
+        <attr name="compose_circle_color" format="color"/>
+    </declare-styleable>
 </resources>

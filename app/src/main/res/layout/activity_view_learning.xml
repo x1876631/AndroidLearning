@@ -12,7 +12,9 @@
         android:id="@+id/SuperCircleViewLayout"
         android:layout_width="200dp"
         android:layout_height="300dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:visibility="gone"
+        >
 
         <com.xuye.androidlearning.viewLearning.SuperCircleView
             android:id="@+id/superview"
@@ -56,9 +58,11 @@
     </FrameLayout>
 
     <com.xuye.androidlearning.viewLearning.NestedParentLayout
+        android:id="@+id/nested_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/A1"
+        android:visibility="gone"
         >
 
         <com.xuye.androidlearning.viewLearning.NestedChildView
@@ -69,4 +73,13 @@
 
     </com.xuye.androidlearning.viewLearning.NestedParentLayout>
 
+
+    <!--组合view-->
+    <com.xuye.androidlearning.viewLearning.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/A4"
+        app:compose_circle_color="@color/A14"
+        />
 </RelativeLayout>

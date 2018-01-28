@@ -21,6 +21,11 @@ public class ViewLearningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_learning);
+
+    }
+
+
+    private void testCircle(){
         textView = (TextView) findViewById(R.id.tv);
         mSuperCircleView = (SuperCircleView) findViewById(R.id.superview);
         mSuperCircleView.setShowSelect(false);
