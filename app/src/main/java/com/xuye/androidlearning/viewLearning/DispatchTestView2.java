@@ -12,7 +12,7 @@ import android.view.View;
  */
 public class DispatchTestView2 extends View {
 
-    private static final String tag = DispatchTestView2.class.getSimpleName();
+    private static final String tag = "--view2--";
 
     public DispatchTestView2(Context context) {
         super(context);
@@ -28,18 +28,22 @@ public class DispatchTestView2 extends View {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        Log.e(tag, "dispatchTouchEvent 开始执行， 事件是" + event.getActionMasked());
+        Log.e(tag, "\ndispatchTouchEvent2 开始执行， 事件是" + event.getActionMasked());
         boolean result = super.dispatchTouchEvent(event);
-        Log.e(tag, "dispatchTouchEvent 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
+        Log.e(tag, "dispatchTouchEvent2 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
         return result;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.e(tag, "onTouchEvent 开始执行， 事件是" + event.getActionMasked());
-//        boolean result = super.onTouchEvent(event);
-        boolean result = true;
-        Log.e(tag, "onTouchEvent 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
+        Log.e(tag, "onTouchEvent2 开始执行， 事件是" + event.getActionMasked());
+        boolean result;
+//        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            result = true;
+//        } else {
+//            result = super.onTouchEvent(event);
+//        }
+        Log.e(tag, "onTouchEvent2 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
         return result;
     }
 }

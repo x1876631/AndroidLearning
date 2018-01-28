@@ -38,7 +38,7 @@ import android.widget.RelativeLayout;
  * 【答】
  * 1、父容器为什么不处理：如果view会告诉父容器，事件它自己处理了。那么父容器在下发事件时得知子view要处理，父容器就不执行自己的处理函数了。
  * 2、其他子view为什么不处理：viewGroup会遍历子view选择之前处理了事件的那个view处理后续事件
- *
+ * <p>
  * <p/>
  * 2、如果onInterceptTouchEvent执行一次后，后续事件默认全部拦截，都由ViewGroup处理。为什么?
  * 【答】当ViewGroup拦截了一次以后，ViewGroup调用onTouchEvent处理了down事件，回导致mFirstTouchTarget==null。
@@ -67,11 +67,10 @@ import android.widget.RelativeLayout;
  * 对于1：有子view，但是子view没有想处理(子view如果处理了的话，mFirstTouchTarget就不会为空了)。
  * 那代表后续的事件就都要交给viewGroup处理了，所以down之后的事件不用再下发了。直接拦截，交给viewGroup处理
  * 对于2：没有子view。那所有事件都应该交给自己处理。所以自然也直接拦截。
- *
  */
 public class DispatchTestViewGroup extends RelativeLayout {
 
-    private static final String tag = DispatchTestViewGroup.class.getSimpleName();
+    private static final String tag = "--group1--";
 
     public DispatchTestViewGroup(Context context) {
         super(context);
@@ -93,9 +92,10 @@ public class DispatchTestViewGroup extends RelativeLayout {
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e(tag, "dispatchTouchEvent 开始执行， 事件是" + ev.getActionMasked());
+        Log.e(tag, "dispatchTouchEvent1 开始执行， 事件是" + ev.getActionMasked());
         boolean result = super.dispatchTouchEvent(ev);
-        Log.e(tag, "dispatchTouchEvent 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
+        Log.e(tag, "dispatchTouchEvent1 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
+        Log.e(tag, "   ");
         return result;
     }
 
@@ -107,10 +107,15 @@ public class DispatchTestViewGroup extends RelativeLayout {
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.e(tag, "onInterceptTouchEvent 开始执行， 事件是" + ev.getActionMasked());
-        boolean result = super.onInterceptTouchEvent(ev);
-//        boolean result = true;
-        Log.e(tag, "onInterceptTouchEvent 执行完毕， 处理结果：" + (result ? "已拦截" : "未拦截"));
+//        Log.e(tag, "onInterceptTouchEvent1 开始执行， 事件是" + ev.getActionMasked());
+        boolean result;
+//        if (ev.getActionMasked() == MotionEvent.ACTION_MOVE) {
+//            //将down向下传递，之后再拦截
+//            result = true;
+//        } else {
+        result = super.onInterceptTouchEvent(ev);
+//        }
+        Log.e(tag, "onInterceptTouchEvent1 执行完毕， 处理结果：" + (result ? "已拦截" : "未拦截"));
         return result;
     }
 
@@ -122,10 +127,14 @@ public class DispatchTestViewGroup extends RelativeLayout {
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.e(tag, "onTouchEvent 开始执行， 事件是" + event.getActionMasked());
-        boolean result = super.onTouchEvent(event);
-//        boolean result = true;
-        Log.e(tag, "onTouchEvent 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
+        Log.e(tag, "onTouchEvent1 开始执行， 事件是" + event.getActionMasked());
+        boolean result;
+//        if (event.getActionMasked() == MotionEvent.ACTION_MOVE) {
+//            result = true;
+//        } else {
+        result = super.onTouchEvent(event);
+//        }
+        Log.e(tag, "onTouchEvent1 执行完毕， 处理结果：" + (result ? "已处理" : "未处理"));
         return result;
     }
 }
