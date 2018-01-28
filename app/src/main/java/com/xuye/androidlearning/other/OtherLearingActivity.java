@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
-import com.xuye.androidlearning.base.util.DeviceUtils;
 
 /**
  * Created by xuye on 17/02/21
@@ -22,14 +21,15 @@ public class OtherLearingActivity extends CommonTestActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
-                getString(R.string.show_phone_tel), getString(R.string.no_ui_show_toast),
+                getString(R.string.cautch_exception), getString(R.string.no_ui_show_toast),
                 getString(R.string.jump_test_span)
         });
     }
 
     @Override
     protected void clickButton1() {
-        DeviceUtils.getPhoneTelNumber(OtherLearingActivity.this);
+//        DeviceUtils.getPhoneTelNumber(OtherLearingActivity.this);
+        throw new RuntimeException("exception in main");
     }
 
     @Override

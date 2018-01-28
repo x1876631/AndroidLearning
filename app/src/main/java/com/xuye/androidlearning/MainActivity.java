@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.xuye.androidlearning.animationLearning.AnimationLearningActivity;
+import com.xuye.androidlearning.base.util.CaughtExceptionHandler;
 import com.xuye.androidlearning.componentLearning.BroadcastLearingActivity;
 import com.xuye.androidlearning.componentLearning.LaunchLearingActivity;
 import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         initData();
         initView();
+
+        //设置全局捕获异常
+        Thread.setDefaultUncaughtExceptionHandler(new CaughtExceptionHandler());
     }
 
     private void initData() {

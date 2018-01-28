@@ -63,7 +63,7 @@
     <string name="ui_show_toast">UI线程弹toast</string>
     <string name="jump_test_span">点击查看span测试效果</string>
     <string name="show_test_span">点击查看span测试效果</string>
-
+    <string name="cautch_exception">全局捕获异常</string>
 
     <string name="memory_leak_tip1">匿名内部类runnable泄露</string>
     <string name="memory_leak_tip2">单例泄露</string>
