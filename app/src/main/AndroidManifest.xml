@@ -168,6 +168,28 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             />
+
+
+        <activity
+            android:name=".webviewLearning.SchemeLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <!--只有这样的url才能匹配这个页面：learning://xuye/path-->
+                <data
+                    android:host="xuye"
+                    android:path="/path"
+                    android:scheme="learning"
+                    />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+        </activity>
+
+
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.xuye.androidlearning;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             R.string.main_jump_window_learning, R.string.main_jump_imageloader_learning,
             R.string.main_jump_animation_learning, R.string.main_jump_memory_leak_learning,
             R.string.main_jump_other_learning, R.string.main_jump_view_event_learning,
-            R.string.main_jump_io_learning
+            R.string.main_jump_io_learning, R.string.main_jump_web_learning
     };
 
     @Override
@@ -116,9 +117,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (getString(mDataResourceArray[12]).equals(content)) {
             //view事件
             startActivity(new Intent(MainActivity.this, ViewEventLearningActivity.class));
-        }else if (getString(mDataResourceArray[13]).equals(content)) {
+        } else if (getString(mDataResourceArray[13]).equals(content)) {
             //io
             startActivity(new Intent(MainActivity.this, IOLearningActivity.class));
+        } else if (getString(mDataResourceArray[14]).equals(content)) {
+            //web
+            String url = "learning://xuye/path?id=1";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
         }
     }
 }
