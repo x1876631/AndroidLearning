@@ -22,9 +22,11 @@
     <string name="button_common_click_tip">点我，测试效果</string>
 
     <string name="lauch_activity_1">activity启动模式学习页1</string>
+    <string name="lauch_activity_single_task">intent启动singleTask</string>
     <string name="lauch_activity_2">activity启动模式学习页2</string>
     <string name="lauch_activity_3">activity启动模式学习页3</string>
     <string name="lauch_activity_4">activity启动模式学习页4</string>
+    <string name="lauch_activity_to_4">点击启动4</string>
 
     <string name="start_service">start service</string>
     <string name="bind_service">bind service</string>

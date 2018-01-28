@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (getString(mDataResourceArray[1]).equals(content)) {
             startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
         } else if (getString(mDataResourceArray[2]).equals(content)) {
+            //activity生命周期和启动方式学习
             startActivity(new Intent(MainActivity.this, LaunchLearingActivity.class));
         } else if (getString(mDataResourceArray[3]).equals(content)) {
             startActivity(new Intent(MainActivity.this, ServiceLearingActivity.class));
