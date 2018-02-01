@@ -16,7 +16,7 @@
     <string name="main_jump_memory_leak_learning">内存泄露学习</string>
     <string name="main_jump_other_learning">未分类学习</string>
     <string name="main_jump_io_learning">io学习</string>
-    <string name="main_jump_web_learning">web学习</string>
+    <string name="main_jump_web_learning">web相关知识学习</string>
 
     <string name="show_fragment">show_fragment</string>
     <string name="test_dialog_fragment_content">测试DialogFragment</string>
@@ -73,5 +73,8 @@
     <string name="io_serializable_test">serializable测试</string>
     <string name="io_parcelable_test">Parcelable测试</string>
     <string name="io_parcelable_get_data">获取Parcelable序列化数据</string>
+
+    <string name="web_scheme">scheme测试</string>
+    <string name="web_view">webview测试</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.xuye.androidlearning;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +21,7 @@ import com.xuye.androidlearning.other.OtherLearingActivity;
 import com.xuye.androidlearning.threadLearning.ThreadLearingActivity;
 import com.xuye.androidlearning.viewLearning.ViewEventLearningActivity;
 import com.xuye.androidlearning.viewLearning.ViewLearningActivity;
+import com.xuye.androidlearning.webLearning.WebMainActivity;
 import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
 
 import java.util.ArrayList;
@@ -95,40 +95,48 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //自定义view
             startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
         } else if (getString(mDataResourceArray[1]).equals(content)) {
+            //fragment
             startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
         } else if (getString(mDataResourceArray[2]).equals(content)) {
             //activity生命周期和启动方式学习
             startActivity(new Intent(MainActivity.this, LaunchLearingActivity.class));
         } else if (getString(mDataResourceArray[3]).equals(content)) {
+            //service
             startActivity(new Intent(MainActivity.this, ServiceLearingActivity.class));
         } else if (getString(mDataResourceArray[4]).equals(content)) {
+            //广播
             startActivity(new Intent(MainActivity.this, BroadcastLearingActivity.class));
         } else if (getString(mDataResourceArray[5]).equals(content)) {
+            //handler
             startActivity(new Intent(MainActivity.this, HandlerLearingActivity.class));
         } else if (getString(mDataResourceArray[6]).equals(content)) {
+            //线程、asynctask
             startActivity(new Intent(MainActivity.this, ThreadLearingActivity.class));
         } else if (getString(mDataResourceArray[7]).equals(content)) {
+            //window
             startActivity(new Intent(MainActivity.this, WindowLearningActivity.class));
         } else if (getString(mDataResourceArray[8]).equals(content)) {
+            //图片加载
             startActivity(new Intent(MainActivity.this, ImageListActivity.class));
         } else if (getString(mDataResourceArray[9]).equals(content)) {
+            //动画
             startActivity(new Intent(MainActivity.this, AnimationLearningActivity.class));
             overridePendingTransition(R.anim.anim_enter, 0);
         } else if (getString(mDataResourceArray[10]).equals(content)) {
+            //内存泄露
             startActivity(new Intent(MainActivity.this, MemoryLeakLearingActivity.class));
         } else if (getString(mDataResourceArray[11]).equals(content)) {
+            //其他
             startActivity(new Intent(MainActivity.this, OtherLearingActivity.class));
         } else if (getString(mDataResourceArray[12]).equals(content)) {
             //view事件
             startActivity(new Intent(MainActivity.this, ViewEventLearningActivity.class));
         } else if (getString(mDataResourceArray[13]).equals(content)) {
-            //io
+            //io、序列化
             startActivity(new Intent(MainActivity.this, IOLearningActivity.class));
         } else if (getString(mDataResourceArray[14]).equals(content)) {
             //web
-            String url = "learning://xuye/path?id=1";
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
+            startActivity(new Intent(this, WebMainActivity.class));
         }
     }
 }

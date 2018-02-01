@@ -1,4 +1,4 @@
-package com.xuye.androidlearning.webviewLearning;
+package com.xuye.androidlearning.webLearning;
 
 import android.net.Uri;
 import android.os.Bundle;

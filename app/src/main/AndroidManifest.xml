@@ -171,7 +171,7 @@
 
 
         <activity
-            android:name=".webviewLearning.SchemeLearningActivity"
+            android:name=".webLearning.SchemeLearningActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             >
@@ -189,6 +189,19 @@
 
         </activity>
 
+
+        <activity
+            android:name=".webLearning.WebMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".webLearning.WebViewLearningActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
 
     </application>
 

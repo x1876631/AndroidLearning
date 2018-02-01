@@ -19,4 +19,13 @@ public class LogUtil {
         Log.e(tag, "current thread id : " +
                 thread.getId() + " , name: " + thread.getName() + "");
     }
+
+    public static final String tag = "xuye";
+
+    /**
+     * 使用默认tag，打印log
+     */
+    public static void logInfo(String content) {
+        Log.e(tag, content);
+    }
 }
