@@ -14,7 +14,7 @@ import com.xuye.androidlearning.R;
  */
 public abstract class CommonTestActivity extends AppCompatActivity implements View.OnClickListener {
 
-    protected static final String tag = "xuye";
+    protected static final String tag = Constant.tag;
 
     //包含了按钮的linearLayout
     protected LinearLayout mButtonLayout;

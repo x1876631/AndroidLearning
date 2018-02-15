@@ -39,12 +39,19 @@ public class WebViewLearningActivity extends AppCompatActivity {
         mRootView = (LinearLayout) findViewById(R.id.webview_learning_root);
         mProgressBar = (ProgressBar) findViewById(R.id.webview_learning_progressbar);
         addWebView();
-        loadUrl(TEST_URL);
+        initJs();
+//        loadUrl(TEST_URL);
+        loadUrl("file:///android_asset/web/js_call_native.html");
+    }
+
+    private void initJs() {
+        //设置js与native的方法映射
+        mWebView.addJavascriptInterface(new AndroidToJs(), "android");
     }
 
     private void loadUrl(String url) {
         if (mWebView != null) {
-            LogUtil.logInfo(url);
+            LogUtil.logInfo("webview load url: " + url);
             mWebView.loadUrl(url);
         }
     }
