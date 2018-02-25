@@ -3,10 +3,13 @@ package com.xuye.androidlearning.viewLearning;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.xuye.androidlearning.R;
+import com.xuye.androidlearning.base.Constant;
+import com.xuye.androidlearning.base.util.ViewUtils;
 
 /**
  * Created by xuye on 16/11/18
@@ -21,6 +24,8 @@ public class ViewLearningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_learning);
+        Log.e(Constant.tag, "当前页面的view深度是：" + ViewUtils
+                .getViewMaxDeep(findViewById(R.id.main_activity_layout), 1, 0));
 
     }
 

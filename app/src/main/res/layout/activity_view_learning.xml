@@ -57,21 +57,21 @@
         </LinearLayout>
     </FrameLayout>
 
-    <com.xuye.androidlearning.viewLearning.NestedParentLayout
-        android:id="@+id/nested_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@color/A1"
-        android:visibility="gone"
-        >
+    <!--<com.xuye.androidlearning.viewLearning.NestedParentLayout-->
+        <!--android:id="@+id/nested_view"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:background="@color/A1"-->
+        <!--android:visibility="gone"-->
+        <!--&gt;-->
 
-        <com.xuye.androidlearning.viewLearning.NestedChildView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/A11"
-            />
+        <!--<com.xuye.androidlearning.viewLearning.NestedChildView-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="@color/A11"-->
+            <!--/>-->
 
-    </com.xuye.androidlearning.viewLearning.NestedParentLayout>
+    <!--</com.xuye.androidlearning.viewLearning.NestedParentLayout>-->
 
 
     <!--组合view-->
