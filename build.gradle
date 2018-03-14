@@ -12,6 +12,7 @@ buildscript {
     //声明依赖库所在的仓库，一般是jcenter()或者mavenCentral()，jcenter()兼容maven中心仓库，而且性能更优
     repositories {
         jcenter()
+        google()
     }
 
     //
@@ -31,6 +32,7 @@ allprojects {
     println '----------allprojects configure phase---------'
     repositories {
         jcenter()
+        google()
     }
 }
 
