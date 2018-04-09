@@ -23,4 +23,18 @@
 
     <color name="huise">#C5C7C7</color>
     <color name="huise2">#EAECF0</color>
+
+    <!-- base colors-->
+    <color name="food_white">#ffffffff</color>
+    <color name="food_gray">#999999</color>
+    <color name="food_light_black">#333333</color>
+    <color name="food_black2">#666666</color>
+    <color name="food_green">#FF32B9AA</color>
+    <color name="food_orange">#FF9900</color>
+    <color name="food_pure_black">#000000</color>
+    <color name="food_transparent">#00000000</color>
+    <color name="food_black3">#FF888888</color>
+    <color name="food_green_FF06C1AE">#FF06C1AE</color>
+    <color name="food_50_alpha_black">#80000000</color>
+    <color name="food_status_bar">#757575</color>
 </resources>
