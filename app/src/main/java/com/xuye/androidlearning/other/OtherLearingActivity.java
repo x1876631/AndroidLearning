@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.LongSparseArray;
 import android.widget.Toast;
 
 import com.xuye.androidlearning.R;
@@ -22,13 +23,12 @@ public class OtherLearingActivity extends CommonTestActivity {
         super.onCreate(savedInstanceState);
         showItemWithCount(new String[]{
                 getString(R.string.cautch_exception), getString(R.string.no_ui_show_toast),
-                getString(R.string.jump_test_span)
+                getString(R.string.jump_test_span), getString(R.string.other_test)
         });
     }
 
     @Override
     protected void clickButton1() {
-//        DeviceUtils.getPhoneTelNumber(OtherLearingActivity.this);
         throw new RuntimeException("exception in main");
     }
 
@@ -60,6 +60,24 @@ public class OtherLearingActivity extends CommonTestActivity {
     @Override
     protected void clickButton3() {
         super.clickButton3();
+
         startActivity(new Intent(this, TestSpannableActivity.class));
+    }
+
+    @Override
+    protected void clickButton4() {
+        super.clickButton4();
+        //获取本机电话号码
+        //DeviceUtils.getPhoneTelNumber(OtherLearingActivity.this);
+
+        //double比较
+        //double d = 0.0000001;
+        //Log.e("xuye", "is0=" + TextContentUtils.isEqual(d,0));
+
+        //测试LongSparseArray.get(null)空指针
+        Long l = null;
+        LongSparseArray<String> lL = new LongSparseArray<>();
+        lL.put(1L, "1");
+        lL.get(l);
     }
 }
