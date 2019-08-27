@@ -1,9 +1,11 @@
 package com.xuye.androidlearning.other;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,6 +13,8 @@ import com.xuye.androidlearning.R;
 import com.xuye.androidlearning.base.CommonTestActivity;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -91,16 +95,165 @@ public class OtherLearingActivity extends CommonTestActivity {
 //        showL(l);
 
 
-        Thread request = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                okhttpRequestTest();
-                Looper.loop();
-            }
-        });
-        request.start();
+//        Thread request = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Looper.prepare();
+//                okhttpRequestTest();
+//                Looper.loop();
+//            }
+//        });
+//        request.start();
 
+//        for (int value = 0; value < 20; value++) {
+//            int result_1 = value / 2;
+//            int result_2 = (int) (value / 2.0);
+//            Log.e("xuye", "value = " + value + "result_1 = " + result_1 + " , result_2 = " + result_2);
+//        }
+
+        long memory = getDeviceMemoryValue(this.getApplication());
+        Log.e("xuye", "设备的总内存 = " + memory / 1000000000.0D);
+
+        //正则测试
+//        String pattern = ".*(@|%40)+(((\\d)+[wh])+(_)?((\\d)+[wh])?)+.*";
+//        String pattern = ".*(@|%40)+((\\d)+(_)?)+.*";
+        String pattern = ".*(/(\\d+)\\.(\\d+)/)+.*";
+        String c1 = "https://p0.meituan.net/80.20/a.png@1h.webp";
+        String c2 = "/10.40/a.png%408h_6w.webp";
+        String c3 = "https://p0.meituan.net/30.18/shaitu/189dd39af90a718199781ceda94bdcea109162.jpg%40350w_350h_0e_1l%7Cwatermark%3D0.webp";
+        String c4 = "https://p0.meituan.net/a.png@4w_123h_1e";
+        String c5 = "/90.100/a.png@10_100_1e";
+        String c6 = "a.png@2m.webp";
+        String c7 = "/20.22/a.png.webp";
+        Pattern r = Pattern.compile(pattern);
+        isMatch2(r, "c1", c1);
+        isMatch2(r, "c2", c2);
+        isMatch2(r, "c3", c3);
+        isMatch2(r, "c4", c4);
+        isMatch2(r, "c5", c5);
+        isMatch2(r, "c6", c6);
+        isMatch2(r, "c7", c7);
+    }
+
+    private static long getDeviceMemoryValue(Context context) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (manager != null) {
+            ActivityManager.MemoryInfo info = new ActivityManager.MemoryInfo();
+            manager.getMemoryInfo(info);
+            return info.totalMem;
+        }
+        return -1;
+    }
+
+    private String isMatch2(Pattern r, String name, String str) {
+        Matcher m = r.matcher(str);
+        boolean isFind = m.find();
+        Log.e("xuye", name + "is find2  = " + isFind);
+        if (isFind) {
+            String g1 = m.group(1);
+            String g2 = m.group(2);
+            String g3 = m.group(3);
+            Log.e("xuye", name + " , g1 = " + g1+" , g2 = " + g2 + " , g3 = " + g3);
+            int value1 = 0;
+            int value2 = 0;
+            if (!TextUtils.isEmpty(g2)) {
+                value1 = Integer.parseInt(g2);
+            }
+            if (!TextUtils.isEmpty(g3)) {
+                value2 = Integer.parseInt(g3);
+            }
+            int newValue1 = (int)(value1 * 0.84);
+            int newValue2 = (int)(value2 * 0.84);
+            StringBuilder sb = new StringBuilder();
+            Log.e("xuye", "获取出的检查参数，old w = " + value1 + " ,old h = " + value2 + " , new w = " + newValue1 + " , new h = " + newValue2);
+            if(newValue1>0 && newValue2>0){
+                sb.append("/").append(newValue1).append(".").append(newValue2).append("/");
+                String newParams = sb.toString();
+                //用新参数替换老裁剪参数
+                String newUrl = str.replace(g1, newParams);
+                Log.e("xuye", "原始url = " + str);
+                Log.e("xuye", "剪裁参数替换后的新url = " + newUrl);
+                return newUrl;
+            }else{
+                return str;
+            }
+        }
+        return str;
+    }
+
+    private String isMatch0(Pattern r, String name, String str) {
+        Matcher m = r.matcher(str);
+        boolean isFind = m.find();
+        Log.e("xuye", name + "is find2  = " + isFind);
+        return str;
+    }
+
+    private String isMatch(Pattern r, String name, String str) {
+        Matcher m = r.matcher(str);
+        boolean isFind = m.find();
+        int width = 0;
+        int height = 0;
+        if (isFind) {
+            String g0 = m.group(0);
+            String g1 = m.group(1);
+            String g2 = m.group(2);
+            String g3 = m.group(3);
+            String g4 = m.group(4);
+            String g5 = m.group(5);
+            String g6 = m.group(6);
+            String g7 = m.group(7);
+            Log.e("xuye", name + " is find = true ,g0 = " + g0 + " ,g1 = " + g1 + " , g2 = " + g2 + " ,g3 = " + g3 + " ,g4 = " + g4 + " ,g5 = " + g5 + " ,g6 =" + g6 + " ,g7 = " + g7);
+
+            //获取裁剪参数值
+            if (!TextUtils.isEmpty(g3)) {
+                //第一个参数
+                if (g3.contains("w")) {
+                    width = Integer.parseInt(g3.replace("w", ""));
+                } else if (g3.contains("h")) {
+                    height = Integer.parseInt(g3.replace("h", ""));
+                }
+            }
+            if (!TextUtils.isEmpty(g6)) {
+                //还有第2个剪裁参数
+                if (g6.contains("w")) {
+                    width = Integer.parseInt(g6.replace("w", ""));
+                } else if (g6.contains("h")) {
+                    height = Integer.parseInt(g6.replace("h", ""));
+                }
+            }
+
+            //获取新参数值
+            int newHeight = (int) (height * 0.8);
+            int newWidth = (int) (width * 0.8);
+            Log.e("xuye", "获取出的检查参数，old w = " + width + " ,old h = " + height + " , new w = " + newWidth + " , new h = " + newHeight);
+
+            //生成新裁剪参数
+            StringBuilder sb = new StringBuilder();
+            if (newHeight > 0 && newWidth > 0) {
+                //原始url有宽高剪裁，且处理后的新剪裁参数仍然合法
+                sb.append(newWidth).append("w").append("_").append(newHeight).append("h");
+            } else if (newHeight > 0 && width <= 0) {
+                //原始url只有单独的高剪裁
+                sb.append(newHeight).append("h");
+            } else if (newWidth > 0 && height <= 0) {
+                //原始url只有单独的宽剪裁
+                sb.append(newWidth).append("w");
+            } else {
+                Log.e("xuye", "剪裁参数处理后异常，不处理了");
+                Log.e("xuye", " ");
+                return str;
+            }
+            String newParams = sb.toString();
+            Log.e("xuye", "原始裁剪参数 = " + g2 + " , 新裁剪参数 = " + newParams);
+
+            //用新参数替换老裁剪参数
+            String newUrl = str.replace(g2, newParams);
+            Log.e("xuye", "原始url = " + str);
+            Log.e("xuye", "剪裁参数替换后的新url = " + newUrl);
+            Log.e("xuye", " ");
+            return newUrl;
+        }
+        return str;
     }
 
     private void okhttpRequestTest() {
