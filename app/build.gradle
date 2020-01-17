@@ -24,15 +24,15 @@ android {
     println '---------android configure phase --------'
 
     //编译项目时使用的SDK版本
-    compileSdkVersion 23
+    compileSdkVersion 28
     //编译工具版本，一般buildToolsVersion>=compileSdkVersion
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "28.0.3"
 
     //当前子模块的配置，一般就是应用id、允许安装当前app的最小版本、app运行时使用的sdk版本、应用的版本号
     defaultConfig {
         applicationId "com.xuye.androidlearning"
-        minSdkVersion 17
-        targetSdkVersion 23
+        minSdkVersion 21
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -74,7 +74,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     //依赖的第三方库，com.android.support这个基本都需要依赖，用于低版本兼容高版本特性，库的版本一般和compileSdkVersion一样
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.jakewharton:disklrucache:2.0.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
