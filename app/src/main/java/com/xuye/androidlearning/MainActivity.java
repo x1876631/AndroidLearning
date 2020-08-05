@@ -3,6 +3,7 @@ package com.xuye.androidlearning;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String content = (String) parent.getItemAtPosition(position);
         if (getString(mDataResourceArray[0]).equals(content)) {
+            Log.e("xuye","onItemClick 0");
             //自定义view
             startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
         } else if (getString(mDataResourceArray[1]).equals(content)) {
