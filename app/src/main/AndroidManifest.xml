@@ -6,7 +6,9 @@
     <!--网络-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--写sd卡-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <!--获取sd卡状态-->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <!-- 添加访问手机位置的权限 -->
