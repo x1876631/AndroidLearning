@@ -11,6 +11,16 @@
  * android插件有2个必须设置的参数：buildToolsVersion和compileSdkVersion
  */
 apply plugin: 'com.android.application'
+//apply plugin: 'inner_mtjacoco'
+//apply plugin: 'mtjacoco'
+
+
+
+//mtjacoco {
+//    coverage=10
+//    forceInterrupt = true
+//    probeType = "all"
+//}
 
 /**
  * android {}里设置了编译Android项目的参数
@@ -21,7 +31,7 @@ apply plugin: 'com.android.application'
  * 执行./gradlew task可以查看所有的task
  */
 android {
-    println '---------android configure phase --------'
+    println '---------app build.gradle , run android{} configure --------'
 
     //编译项目时使用的SDK版本
     compileSdkVersion 28
@@ -66,6 +76,7 @@ android {
 
 //当前project编译所需要的依赖库
 dependencies {
+    println '---------app build.gradle , run dependencies{} configure --------'
     //编译libs目录下的所有jar包
     compile fileTree(dir: 'libs', include: ['*.jar'])
 

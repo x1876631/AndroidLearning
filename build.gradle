@@ -11,6 +11,9 @@ buildscript {
 
     //声明依赖库所在的仓库，一般是jcenter()或者mavenCentral()，jcenter()兼容maven中心仓库，而且性能更优
     repositories {
+        mavenLocal()
+        maven { url 'http://depot.sankuai.com/nexus/content/groups/public/' }
+        maven { url uri('/Users/xuye/jacoco/jacoco-plugin/repo') }
         jcenter()
         google()
     }
@@ -19,6 +22,8 @@ buildscript {
     dependencies {
         //声明gradle插件版本
         classpath 'com.android.tools.build:gradle:3.2.1'
+//        classpath 'com.xuye:inner_mtjacoco:0.0.1'
+//        classpath 'com.meituan.plugin:mtjacoco:1.0.18'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -31,6 +36,14 @@ allprojects {
     /*查看该行信息打印的次数，应该是有几个项目（有几个build.gradle文件），打印几次*/
     println '----------allprojects configure phase---------'
     repositories {
+        mavenLocal()
+        maven {
+            url 'http://depot.sankuai.com/nexus/content/groups/public/'
+        }
+        maven {
+            url "http://mvn.dianpingoa.com/android-nova"
+        }
+
         jcenter()
         google()
     }
