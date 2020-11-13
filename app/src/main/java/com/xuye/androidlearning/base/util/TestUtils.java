@@ -5,7 +5,7 @@ import android.util.Log;
 public class TestUtils {
 
     public static void testLog(){
-        Log.e("xuye","1111");
+        Log.e("xuye","111");
     }
 }
 
