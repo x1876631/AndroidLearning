@@ -45,7 +45,9 @@ public class OtherLearingActivity extends CommonTestActivity {
     @Override
     protected void clickButton2() {
         super.clickButton2();
-        new Thread(new MyTestRunnable(getApplicationContext())).start();
+//        new Thread(new MyTestRunnable(getApplicationContext())).start();
+
+        Log.e("xuye","click button 223 ");
     }
 
     /**
@@ -71,7 +73,9 @@ public class OtherLearingActivity extends CommonTestActivity {
     protected void clickButton3() {
         super.clickButton3();
 
-        startActivity(new Intent(this, TestSpannableActivity.class));
+//        startActivity(new Intent(this, TestSpannableActivity.class));
+
+        Log.e("xuye","click button 3 ");
     }
 
     @Override
