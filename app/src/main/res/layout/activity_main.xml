@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/main_activity_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.xuye.androidlearning.MainActivity">
 
+    <TextView
+        android:id="@+id/test_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="-----测试-----"
+        android:textSize="30sp" />
+
+
     <ListView
         android:id="@+id/main_activity_content_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-        <!--android:layoutAnimation="@anim/anim_main_list"-->
+        android:layout_height="wrap_content"
+        android:layout_below="@id/test_button" />
+    <!--android:layoutAnimation="@anim/anim_main_list"-->
 
 </RelativeLayout>

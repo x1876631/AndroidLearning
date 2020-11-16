@@ -9,6 +9,11 @@ buildscript {
      */
     println '------buildscript configire phase---------'
 
+    String dir1 = System.getProperty("user.home")
+    String dir2 = System.getProperty("user.name")
+    String dir3 = System.getProperty("user.dir")
+    println 'dir1 = '+dir1+' , dir2 = '+dir2+' , dir3 = '+dir3
+
     //声明依赖库所在的仓库，一般是jcenter()或者mavenCentral()，jcenter()兼容maven中心仓库，而且性能更优
     repositories {
         mavenLocal()
@@ -22,7 +27,7 @@ buildscript {
     dependencies {
         //声明gradle插件版本
         classpath 'com.android.tools.build:gradle:3.2.1'
-//        classpath 'com.xuye:inner_mtjacoco:0.0.1'
+        classpath 'com.test:inner_mtjacoco:0.0.1'
 //        classpath 'com.meituan.plugin:mtjacoco:1.0.18'
 
         // NOTE: Do not place your application dependencies here; they belong

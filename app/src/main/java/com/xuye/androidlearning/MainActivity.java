@@ -1,15 +1,19 @@
 package com.xuye.androidlearning;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.xuye.androidlearning.animationLearning.AnimationLearningActivity;
-import com.xuye.androidlearning.componentLearning.BroadcastLearingActivity;
+import com.xuye.androidlearning.base.util.TestUtils;
 import com.xuye.androidlearning.componentLearning.LaunchLearingActivity;
 import com.xuye.androidlearning.componentLearning.ServiceLearingActivity;
 import com.xuye.androidlearning.fragmentLearning.FragmentLearningActivity;
@@ -27,6 +31,7 @@ import com.xuye.androidlearning.windowLearning.WindowLearningActivity;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
 
     public static final String tag = "MainActivity";
 
@@ -61,10 +66,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         initData();
         initView();
+        testwh();
+        TestUtils.testLog();
 
         //设置全局捕获异常
         // TODO: 2018/5/2 先干掉，以后需要再加回来
 //        Thread.setDefaultUncaughtExceptionHandler(new CaughtExceptionHandler());
+    }
+
+    private void testwh() {
+
+        WindowManager wm = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        Log.e("xuye", "w = " + width + " , h = " + height);
     }
 
     private void initData() {
@@ -76,24 +92,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void initView() {
+        TextView textView = findViewById(R.id.test_button);
+        textView.setOnClickListener(v -> {
+            Log.e("xuye","test lambda jacoco 123");
+        });
+
+
         ListView listView = (ListView) findViewById(R.id.main_activity_content_list);
-        if (listView != null) {
 
 //            ArrayAdapter<String> adapter =
 //                    new ArrayAdapter<String>(getApplicationContext(), R.layout.activity_common_click,
 //                            R.id.common_click_button, mData);
 //            listView.setAdapter(adapter);
-            //用上面的arrayAdapter也可以，就不用自己去实现adapter里的getView()了
-            listView.setAdapter(new MainListAdapter(getApplicationContext(), mData));
-            listView.setOnItemClickListener(this);
-        }
+        //用上面的arrayAdapter也可以，就不用自己去实现adapter里的getView()了
+        listView.setAdapter(new MainListAdapter(getApplicationContext(), mData));
+        listView.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String content = (String) parent.getItemAtPosition(position);
         if (getString(mDataResourceArray[0]).equals(content)) {
-            Log.e("xuye","onItemClick 0");
+            Log.e("xuye", "onItemClick 11112");
             //自定义view
             startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
         } else if (getString(mDataResourceArray[1]).equals(content)) {
@@ -101,13 +121,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this, FragmentLearningActivity.class));
         } else if (getString(mDataResourceArray[2]).equals(content)) {
             //activity生命周期和启动方式学习
+            Log.e("xuye", "onItemClick 888");
             startActivity(new Intent(MainActivity.this, LaunchLearingActivity.class));
         } else if (getString(mDataResourceArray[3]).equals(content)) {
             //service
             startActivity(new Intent(MainActivity.this, ServiceLearingActivity.class));
-        } else if (getString(mDataResourceArray[4]).equals(content)) {
-            //广播
-            startActivity(new Intent(MainActivity.this, BroadcastLearingActivity.class));
         } else if (getString(mDataResourceArray[5]).equals(content)) {
             //handler
             startActivity(new Intent(MainActivity.this, HandlerLearingActivity.class));
@@ -140,5 +158,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //web
             startActivity(new Intent(this, WebMainActivity.class));
         }
+        Log.e("xuye", "method last line");
+
     }
 }

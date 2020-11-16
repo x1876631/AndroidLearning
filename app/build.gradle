@@ -11,16 +11,18 @@
  * android插件有2个必须设置的参数：buildToolsVersion和compileSdkVersion
  */
 apply plugin: 'com.android.application'
-//apply plugin: 'inner_mtjacoco'
+apply plugin: 'inner_mtjacoco'
 //apply plugin: 'mtjacoco'
 
 
 
-//mtjacoco {
+mtjacoco {
 //    coverage=10
 //    forceInterrupt = true
 //    probeType = "all"
-//}
+    reportJarLibraryId = "food_report"
+    checkByLine = true
+}
 
 /**
  * android {}里设置了编译Android项目的参数
@@ -72,6 +74,11 @@ android {
             res.srcDirs = ['src/main/res', 'src/main/res-auto']
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 //当前project编译所需要的依赖库
@@ -89,6 +96,7 @@ dependencies {
     compile 'com.jakewharton:disklrucache:2.0.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    compile 'com.google.code.gson:gson:2.8.2'
 }
 
 //根据gradle.properties生成配置文件on_test_config.xml，供代码里获取是否是测试版
