@@ -47,11 +47,11 @@ public class OtherLearingActivity extends CommonTestActivity {
         super.clickButton2();
 //        new Thread(new MyTestRunnable(getApplicationContext())).start();
 
-        Log.e("xuye","click button 223 ");
+        Log.e("xuye","click button 22334 ");
     }
 
     /**
-     * 静态内部类不会持有外部类引用，不会有内存泄露
+     * 静态内11部类不会持有外部类引用，不会有内存泄露
      */
     private static class MyTestRunnable implements Runnable {
 

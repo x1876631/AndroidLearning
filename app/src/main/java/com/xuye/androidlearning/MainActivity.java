@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void initView() {
         TextView textView = findViewById(R.id.test_button);
         textView.setOnClickListener(v -> {
-            Log.e("xuye","test lambda jacoco 123");
+            Log.e("xuye","test lambda jacoco 12345");
         });
 
 
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String content = (String) parent.getItemAtPosition(position);
         if (getString(mDataResourceArray[0]).equals(content)) {
-            Log.e("xuye", "onItemClick 11112");
+            Log.e("xuye", "onItemClick 01");
             //自定义view
             startActivity(new Intent(MainActivity.this, ViewLearningActivity.class));
         } else if (getString(mDataResourceArray[1]).equals(content)) {
