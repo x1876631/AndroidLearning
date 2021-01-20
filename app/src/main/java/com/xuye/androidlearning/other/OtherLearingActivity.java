@@ -47,7 +47,27 @@ public class OtherLearingActivity extends CommonTestActivity {
         super.clickButton2();
 //        new Thread(new MyTestRunnable(getApplicationContext())).start();
 
+        String $1 = "com/meituan/android/food/deal/newpage/agent/FoodDealMerchantBaseAgent$FoodDealMerchantSkeletonCell";
+        String $2 = "com/meituan/android/food/deal/newpage/agent/FoodPoiTitleAgent$$Lambda$1";
+        Log.e("xuye",removeInnerClassName($1));
+        Log.e("xuye",removeInnerClassName($2));
+
         Log.e("xuye","click button 22334 ");
+    }
+
+    static String removeInnerClassName(String className) {
+        if (!TextUtils.isEmpty(className)) {
+            int index = className.indexOf("$");
+            if (index > 0) {
+                //如果找到了内部类$的符号，把内部类名称部分的字符串删掉
+                String newName = className.substring(0, index);
+                return newName;
+            }else{
+                return className;
+            }
+        } else {
+            return className;
+        }
     }
 
     /**
